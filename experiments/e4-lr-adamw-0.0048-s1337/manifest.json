@@ -1,0 +1,104 @@
+{
+  "run": "e4-lr-adamw-0.0048-s1337",
+  "started": "2026-09-30T17:03:15+00:00",
+  "git_revision": "d96294d",
+  "python": "3.12.13",
+  "device": {
+    "device": "cuda",
+    "accelerator": "Tesla T4",
+    "precision": "bf16",
+    "torch": "2.10.0+cu128",
+    "cuda_capability": "7.5",
+    "vram_gb": 14.6
+  },
+  "config": {
+    "name": "e4-lr-adamw-0.0048",
+    "notes": "E4 LR sweep point: probe model, 1/4 budget.",
+    "out_dir": "artifacts",
+    "model": {
+      "vocab_size": 16384,
+      "d_model": 384,
+      "n_heads": 6,
+      "n_layers": 6,
+      "context_length": 512,
+      "dropout": 0.0,
+      "norm": "rmsnorm",
+      "pos": "rope",
+      "ffn": "swiglu",
+      "bias": false,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0,
+      "ffn_mult": 4.0,
+      "init_std": 0.02
+    },
+    "training": {
+      "batch_size": 32,
+      "gradient_accumulation": 8,
+      "learning_rate": 0.0048,
+      "min_lr_ratio": 0.1,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "warmup_steps": 50,
+      "max_steps": 575,
+      "optimizer": "adamw",
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "muon_weight_decay": 0.0,
+      "validation_interval": 100,
+      "validation_batches": 20,
+      "log_interval": 10,
+      "checkpoint_interval": 500,
+      "keep_last_n_checkpoints": 2,
+      "seed": 1337,
+      "precision": "auto",
+      "device": "auto",
+      "compile": false,
+      "num_workers": 0
+    },
+    "data": {
+      "dataset": "general",
+      "mixture": {
+        "web": 7,
+        "dialogue": 2,
+        "code": 1
+      },
+      "tokenizer_path": "tokenizer/minime-16k.json",
+      "seed": 1234
+    }
+  },
+  "data": {
+    "data_dir": "/kaggle/input/datasets/namnguyen2609/minime-general-shards/general",
+    "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+    "tokenizer_dev": false,
+    "shards": {
+      "web": 630000348,
+      "dialogue": 180000001,
+      "code": 90005340
+    },
+    "val_shard": {
+      "val": 4537964
+    }
+  },
+  "finished": "2026-09-30T18:23:02+00:00",
+  "summary": {
+    "steps": 575,
+    "tokens_seen": 75366400,
+    "final_val_loss": 4.542258560657501,
+    "best_val_loss": 4.542258560657501,
+    "runtime_seconds": 4787.0,
+    "runtime": "1h19m",
+    "tokens_per_second": 15932.1,
+    "mfu": 0.019218683385019968,
+    "params": 16913280,
+    "realised_mixture": {
+      "code": 0.09936141304347826,
+      "dialogue": 0.20019021739130435,
+      "web": 0.7004483695652174
+    },
+    "precision": "bf16"
+  }
+}

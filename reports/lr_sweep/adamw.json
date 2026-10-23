@@ -1,0 +1,39 @@
+{
+  "sweep": "adamw",
+  "key": "training.learning_rate",
+  "optimizer": "adamw",
+  "winner": 0.0024,
+  "winner_run": "e4-lr-adamw-0.0024-s1337",
+  "winner_final_val_loss": 4.458747518062592,
+  "margin": 0.05495700836181605,
+  "at_edge": false,
+  "anchor": null,
+  "token_budget": 75366400,
+  "seed": 1337,
+  "points": [
+    {
+      "run": "e4-lr-adamw-0.0006-s1337",
+      "value": 0.0006,
+      "status": "finished",
+      "final_val_loss": 4.801839113235474
+    },
+    {
+      "run": "e4-lr-adamw-0.0012-s1337",
+      "value": 0.0012,
+      "status": "finished",
+      "final_val_loss": 4.513704526424408
+    },
+    {
+      "run": "e4-lr-adamw-0.0024-s1337",
+      "value": 0.0024,
+      "status": "finished",
+      "final_val_loss": 4.458747518062592
+    },
+    {
+      "run": "e4-lr-adamw-0.0048-s1337",
+      "value": 0.0048,
+      "status": "finished",
+      "final_val_loss": 4.542258560657501
+    }
+  ]
+}

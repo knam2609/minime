@@ -1,0 +1,144 @@
+{
+  "run": "m10-rerun-a",
+  "started": "2026-10-19T16:59:32+00:00",
+  "git_revision": "a19884d-dirty",
+  "python": "3.11.2",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "config": {
+    "name": "m10_adapt_a",
+    "notes": "M10 candidate A: 10/90 at L = 2e-5.",
+    "role": "adaptation",
+    "out_dir": "artifacts",
+    "model": {
+      "vocab_size": 16384,
+      "d_model": 576,
+      "n_heads": 9,
+      "n_layers": 10,
+      "context_length": 1024,
+      "dropout": 0.0,
+      "norm": "rmsnorm",
+      "pos": "rope",
+      "ffn": "swiglu",
+      "bias": false,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0,
+      "ffn_mult": 4.0,
+      "init_std": 0.02
+    },
+    "training": {
+      "batch_size": 2,
+      "gradient_accumulation": 4,
+      "learning_rate": 2e-05,
+      "min_lr_ratio": 0.1,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "warmup_steps": 8,
+      "max_steps": 128,
+      "optimizer": "adamw",
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "muon_weight_decay": 0.0,
+      "validation_interval": 16,
+      "validation_batches": 16,
+      "log_interval": 8,
+      "checkpoint_interval": 500,
+      "keep_last_n_checkpoints": 2,
+      "seed": 1337,
+      "precision": "auto",
+      "device": "auto",
+      "compile": false,
+      "num_workers": 0
+    },
+    "data": {
+      "dataset": "general",
+      "mixture": {
+        "web": 0.63,
+        "dialogue": 0.18,
+        "code": 0.09,
+        "chat": 0.1
+      },
+      "tokenizer_path": "tokenizer/minime-16k.json",
+      "seed": 3000
+    }
+  },
+  "data": {
+    "data_dir": [
+      "/Volumes/BIWIN/minime/shards/general",
+      "/Volumes/BIWIN/minime/shards/personal"
+    ],
+    "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+    "tokenizer_dev": false,
+    "shards": {
+      "web": 630000348,
+      "dialogue": 180000001,
+      "code": 90005340,
+      "chat": 293534
+    },
+    "val_shard": {
+      "general": 4537964,
+      "personal": 15838
+    }
+  },
+  "init_from": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/flagship-s1337/last.pt",
+    "sha256": "26efe54f47d1c1479b9bd3a76fa1ab2d51448b967a16b5d672278dc76c547296",
+    "step": 3450,
+    "config_name": "flagship",
+    "config_fingerprint": "bf10b99efe2f"
+  },
+  "sessions": [
+    {
+      "started": "2026-10-19T16:59:32+00:00",
+      "git_revision": "a19884d-dirty",
+      "python": "3.11.2",
+      "device": {
+        "device": "mps",
+        "accelerator": "Apple Silicon (MPS)",
+        "precision": "fp32",
+        "torch": "2.11.0"
+      },
+      "start_step": 0,
+      "data_dir": [
+        "/Volumes/BIWIN/minime/shards/general",
+        "/Volumes/BIWIN/minime/shards/personal"
+      ],
+      "ended": "2026-10-19T17:16:02+00:00",
+      "end_step": 128,
+      "outcome": "finished",
+      "runtime_seconds": 989.1,
+      "tokens_per_second": 1271.6
+    }
+  ],
+  "finished": "2026-10-19T17:16:02+00:00",
+  "summary": {
+    "steps": 128,
+    "tokens_seen": 1048576,
+    "final_val_loss": 3.3626341372728348,
+    "best_val_loss": 3.3626341372728348,
+    "runtime_seconds": 989.1,
+    "runtime": "16m29s",
+    "tokens_per_second": 1271.6,
+    "mfu": 0.1652288951276511,
+    "params": 49262400,
+    "realised_mixture": {
+      "chat": 0.0859375,
+      "code": 0.095703125,
+      "dialogue": 0.1689453125,
+      "web": 0.6494140625
+    },
+    "precision": "fp32",
+    "final_val_losses": {
+      "general": 3.3626341372728348,
+      "personal": 3.7367039024829865
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "run": "m10-lr-0.0032-s1337",
+  "started": "2026-10-14T05:58:11+00:00",
+  "git_revision": "9f282f6",
+  "python": "3.13.15",
+  "device": {
+    "device": "cuda",
+    "accelerator": "Tesla T4",
+    "precision": "fp16",
+    "torch": "2.11.0+cu128",
+    "cuda_capability": "7.5",
+    "vram_gb": 14.6
+  },
+  "config": {
+    "name": "m10-lr-0.0032",
+    "notes": "M10 LR sweep point: the flagship's model and mixture, 1/8 budget.",
+    "role": "",
+    "out_dir": "artifacts",
+    "model": {
+      "vocab_size": 16384,
+      "d_model": 576,
+      "n_heads": 9,
+      "n_layers": 10,
+      "context_length": 1024,
+      "dropout": 0.0,
+      "norm": "rmsnorm",
+      "pos": "rope",
+      "ffn": "swiglu",
+      "bias": false,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0,
+      "ffn_mult": 4.0,
+      "init_std": 0.02
+    },
+    "training": {
+      "batch_size": 16,
+      "gradient_accumulation": 16,
+      "learning_rate": 0.0032,
+      "min_lr_ratio": 0.1,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "warmup_steps": 37,
+      "max_steps": 431,
+      "optimizer": "adamw",
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "muon_weight_decay": 0.0,
+      "validation_interval": 200,
+      "validation_batches": 20,
+      "log_interval": 10,
+      "checkpoint_interval": 500,
+      "keep_last_n_checkpoints": 2,
+      "seed": 1337,
+      "precision": "auto",
+      "device": "auto",
+      "compile": false,
+      "num_workers": 0
+    },
+    "data": {
+      "dataset": "general",
+      "mixture": {
+        "web": 12061,
+        "dialogue": 3446,
+        "code": 1723,
+        "chat": 20
+      },
+      "tokenizer_path": "tokenizer/minime-16k.json",
+      "seed": 1234
+    }
+  },
+  "data": {
+    "data_dir": [
+      "/kaggle/input/datasets/namnguyen2609/minime-general-shards/general",
+      "/kaggle/input/datasets/namnguyen2609/minime-personal-shards/personal-chat-train"
+    ],
+    "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+    "tokenizer_dev": false,
+    "shards": {
+      "web": 630000348,
+      "dialogue": 180000001,
+      "code": 90005340,
+      "chat": 293534
+    },
+    "val_shard": {
+      "val": 4537964
+    }
+  },
+  "sessions": [
+    {
+      "started": "2026-10-14T05:58:11+00:00",
+      "git_revision": "9f282f6",
+      "python": "3.13.15",
+      "device": {
+        "device": "cuda",
+        "accelerator": "Tesla T4",
+        "precision": "fp16",
+        "torch": "2.11.0+cu128",
+        "cuda_capability": "7.5",
+        "vram_gb": 14.6
+      },
+      "start_step": 0,
+      "data_dir": [
+        "/kaggle/input/datasets/namnguyen2609/minime-general-shards/general",
+        "/kaggle/input/datasets/namnguyen2609/minime-personal-shards/personal-chat-train"
+      ],
+      "ended": "2026-10-14T07:06:45+00:00",
+      "end_step": 431,
+      "outcome": "finished",
+      "runtime_seconds": 4113.3,
+      "tokens_per_second": 27588.4
+    }
+  ],
+  "finished": "2026-10-14T07:06:45+00:00",
+  "summary": {
+    "steps": 431,
+    "tokens_seen": 112984064,
+    "final_val_loss": 4.76591694355011,
+    "best_val_loss": 4.76591694355011,
+    "runtime_seconds": 4113.3,
+    "runtime": "1h08m",
+    "tokens_per_second": 27588.4,
+    "mfu": 0.12981891810841098,
+    "params": 49262400,
+    "realised_mixture": {
+      "chat": 0.0011782192575406033,
+      "code": 0.09866226798143851,
+      "dialogue": 0.20041509570765662,
+      "web": 0.6997444170533643
+    },
+    "precision": "fp16"
+  }
+}

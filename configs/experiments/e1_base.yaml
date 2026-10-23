@@ -1,0 +1,28 @@
+# E1's adaptation recipe (README "E1 adaptation protocol", decided with the
+# owner 2026-10-06, before any adaptation run).  Every E1 run starts from a P1
+# final checkpoint's weights (train.py --init-from) with a fresh AdamW and
+# schedule, on the laptop (MPS, fp32), every arm and its control alike.
+# scripts/run_e1.py writes the commands: both shard directories, both
+# validation sets (general first, then personal), the base checkpoint, and
+# data.seed per base (2001-2004 for p1-s1337..p1-s1340; the pilots' is 2000).
+extends: ../probe.yaml
+name: e1_base
+notes: "E1 recipe: from a P1 checkpoint, 2,097,152 tokens, fresh AdamW."
+
+training:
+  batch_size: 4
+  gradient_accumulation: 4     # 8,192 tokens/step; fixed before any pilot is ranked
+  # The main runs' peak LR: the LR pilot's pick (reports/e1/pilot.json),
+  # confirmed by the owner 2026-10-06 (README "E1 LR pilot -- result").
+  learning_rate: 1.0e-3
+  warmup_steps: 16
+  max_steps: 256               # 2,097,152 tokens (~2.10M)
+  log_interval: 8
+  validation_interval: 32
+  validation_batches: 16       # 64 windows of 512 per validation set
+  checkpoint_interval: 64
+  keep_last_n_checkpoints: 4   # keeps every intermediate checkpoint (exploratory)
+
+data:
+  # Every arm writes all five keys, zeros included: `extends` merges dicts.
+  mixture: { web: 7, dialogue: 2, code: 1, chat: 0, comment: 0 }

@@ -1,0 +1,44 @@
+# --- personal data: never committed -------------------------------------
+# The whole point of the privacy design: code is public, "me" is not.
+data/personal/
+data/general/
+data/cache/
+artifacts/
+checkpoints/
+tokenizer/*.json
+!tokenizer/.gitkeep
+*.bin
+*.idx
+*.idx.npy
+data/shards/
+personal_names.txt
+
+# --- experiment outputs: metrics are committed, weights are not ---------
+experiments/**/*.pt
+experiments/**/samples/
+wandb/
+# What the Kaggle launcher's results.tar.gz leaves at the repo root besides
+# the run directories: its logs, and cost rows to append to costs.csv.
+/results.tar.gz
+/logs/
+/kaggle-costs.csv
+
+# --- python -------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# --- os / editor --------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+
+# --- the showcase page: its samples are a public object, never committed --
+docs/samples.json
+samples.json

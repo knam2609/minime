@@ -1,0 +1,12 @@
+# M10's AdamW LR sweep (HANDOFF §4a): the flagship -- its model, its mixture
+# with the owner's chat at 0.116%, its batch and its schedule's shape -- at
+# 1/8 of its budget.  Every point extends this file and sets the peak LR,
+# nothing else, so pick_m10_lr.py can check the sweep is controlled.
+# The pick: the lowest final general validation loss at 431 steps.
+extends: ../flagship.yaml
+name: m10-lr
+notes: "M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+
+training:
+  max_steps: 431               # 112,984,064 tokens = 1/8 of the flagship's 3,450 steps (431.25)
+  warmup_steps: 37             # the flagship's 300, scaled with the steps: 300 x 431/3450 = 37.48

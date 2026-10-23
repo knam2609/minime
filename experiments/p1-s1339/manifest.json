@@ -1,0 +1,104 @@
+{
+  "run": "p1-s1339",
+  "started": "2026-10-03T16:17:14+00:00",
+  "git_revision": "03afb51",
+  "python": "3.12.13",
+  "device": {
+    "device": "cuda",
+    "accelerator": "Tesla T4",
+    "precision": "fp16",
+    "torch": "2.10.0+cu128",
+    "cuda_capability": "7.5",
+    "vram_gb": 14.6
+  },
+  "config": {
+    "name": "p1",
+    "notes": "P1 baseline pretrain: probe, AdamW, RoPE.",
+    "out_dir": "artifacts",
+    "model": {
+      "vocab_size": 16384,
+      "d_model": 384,
+      "n_heads": 6,
+      "n_layers": 6,
+      "context_length": 512,
+      "dropout": 0.0,
+      "norm": "rmsnorm",
+      "pos": "rope",
+      "ffn": "swiglu",
+      "bias": false,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0,
+      "ffn_mult": 4.0,
+      "init_std": 0.02
+    },
+    "training": {
+      "batch_size": 32,
+      "gradient_accumulation": 8,
+      "learning_rate": 0.0024,
+      "min_lr_ratio": 0.1,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "warmup_steps": 200,
+      "max_steps": 2300,
+      "optimizer": "adamw",
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "muon_weight_decay": 0.0,
+      "validation_interval": 100,
+      "validation_batches": 20,
+      "log_interval": 10,
+      "checkpoint_interval": 500,
+      "keep_last_n_checkpoints": 2,
+      "seed": 1339,
+      "precision": "auto",
+      "device": "auto",
+      "compile": false,
+      "num_workers": 0
+    },
+    "data": {
+      "dataset": "general",
+      "mixture": {
+        "web": 7,
+        "dialogue": 2,
+        "code": 1
+      },
+      "tokenizer_path": "tokenizer/minime-16k.json",
+      "seed": 1236
+    }
+  },
+  "data": {
+    "data_dir": "/kaggle/input/datasets/namnguyen2609/minime-general-shards/general",
+    "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+    "tokenizer_dev": false,
+    "shards": {
+      "web": 630000348,
+      "dialogue": 180000001,
+      "code": 90005340
+    },
+    "val_shard": {
+      "val": 4537964
+    }
+  },
+  "finished": "2026-10-03T17:32:32+00:00",
+  "summary": {
+    "steps": 2300,
+    "tokens_seen": 301465600,
+    "final_val_loss": 3.70871,
+    "best_val_loss": 3.7087071537971497,
+    "runtime_seconds": 4517.8,
+    "runtime": "1h15m",
+    "tokens_per_second": 67435.2,
+    "mfu": 0.08044239487628686,
+    "params": 16913280,
+    "realised_mixture": {
+      "code": 0.10021739130434783,
+      "dialogue": 0.20003226902173912,
+      "web": 0.6997503396739131
+    },
+    "precision": "fp16"
+  }
+}

@@ -1,0 +1,9 @@
+# E1 50/50.  ~1.05M personal tokens, ~3.6 passes over the owner's chat; the
+# general part at the corpus's 7:2:1.  The LR pilot runs this arm.
+extends: e1_base.yaml
+name: e1_m50
+role: main
+notes: "E1 50/50: the middle."
+
+data:
+  mixture: { web: 0.35, dialogue: 0.1, code: 0.05, chat: 0.5, comment: 0 }

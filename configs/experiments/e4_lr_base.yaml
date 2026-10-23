@@ -1,0 +1,11 @@
+# E4 learning-rate protocol: the probe model at a quarter of its token budget.
+# Every sweep point extends this file (via the AdamW or Muon base) and changes
+# one learning rate -- nothing else -- so `pick_lr.py` can check the sweep is
+# controlled.  The schedule keeps the probe's shape: warmup is a quarter too.
+extends: ../probe.yaml
+name: e4-lr
+notes: "E4 LR sweep point: probe model, 1/4 budget."
+
+training:
+  max_steps: 575               # 75.4M tokens = 1/4 of the probe's 2,300 steps
+  warmup_steps: 50             # 1/4 of the probe's 200

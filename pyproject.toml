@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "minime"
+version = "0.1.0"
+description = "A small decoder-only language model trained from scratch to write in one person's voice."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+# Everything beyond the core train loop is optional so that a bare clone can
+# still run the unit suite and the tiny overfit test.
+data = ["tokenizers>=0.15", "datasets>=2.18"]
+eval = ["scikit-learn>=1.4", "pandas>=2.2", "matplotlib>=3.8"]
+track = ["wandb>=0.16"]
+dev = ["pytest>=8.0", "pytest-timeout>=2.2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/minime"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --timeout=300"
+markers = [
+    "slow: tests that train something (still CPU-only, seconds not minutes)",
+    "needs_personal: requires a local personal corpus that is never committed",
+    "network: streams from the Hugging Face Hub; opt in with MINIME_NETWORK_TESTS=1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

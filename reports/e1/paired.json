@@ -1,0 +1,507 @@
+{
+  "rule": "d_i = arm - control per base; mean d \u00b1 t(1 - 0.05/12, n-1) \u00b7 s_d / \u221an (Bonferroni over 6 verdicts); an interval containing 0 is 'unresolved'",
+  "n_bases": 4,
+  "planned_bases": 4,
+  "multiplier": 3.11575,
+  "bases": [
+    {
+      "base": "p1-s1337",
+      "init_sha256": "0db7700479d1d279f4d2d8039326bb2c725b82e75c4f2fcf672b3808690ccc2a",
+      "data_seed": 2001,
+      "runs": {
+        "0": "e1-m0-p1s1337",
+        "25": "e1-m25-p1s1337",
+        "50": "e1-m50-p1s1337",
+        "100": "e1-m100-p1s1337"
+      }
+    },
+    {
+      "base": "p1-s1338",
+      "init_sha256": "b31002d7de8eab104a7e81a0b7fd0f6167969f24bfb971e0652f945432d6e751",
+      "data_seed": 2002,
+      "runs": {
+        "0": "e1-m0-p1s1338",
+        "25": "e1-m25-p1s1338",
+        "50": "e1-m50-p1s1338",
+        "100": "e1-m100-p1s1338"
+      }
+    },
+    {
+      "base": "p1-s1339",
+      "init_sha256": "5014c5ba6f9eee7102a417385b819573f733a60a4a5b24e47479d2a209bf303f",
+      "data_seed": 2003,
+      "runs": {
+        "0": "e1-m0-p1s1339",
+        "25": "e1-m25-p1s1339",
+        "50": "e1-m50-p1s1339",
+        "100": "e1-m100-p1s1339"
+      }
+    },
+    {
+      "base": "p1-s1340",
+      "init_sha256": "3bb1f90931f7518a46cbd236aad00ef1c42d2bfab9a99a80ffa0730b8616f854",
+      "data_seed": 2004,
+      "runs": {
+        "0": "e1-m0-p1s1340",
+        "25": "e1-m25-p1s1340",
+        "50": "e1-m50-p1s1340",
+        "100": "e1-m100-p1s1340"
+      }
+    }
+  ],
+  "learning_rate": 0.001,
+  "token_budget": 2097152,
+  "precision": "fp32",
+  "eval": {
+    "file": "eval-last.json",
+    "eval_version": 1,
+    "eval_config_fingerprint": "7c9503161d6f",
+    "split": "val",
+    "tokenizer.id": "minime-16k@92bb9c71bf6e2da5",
+    "device.device": "mps",
+    "device.precision": "fp32",
+    "device.torch": "2.11.0",
+    "eval_sets_digest": "eb91b6ebeeaaafd8"
+  },
+  "contrasts": {
+    "25": {
+      "failed_bases": [],
+      "metrics": {
+        "perplexity.personal.loss": {
+          "role": "primary",
+          "differences": [
+            -3.4380380666985344,
+            -3.3365727789724025,
+            -3.3570542920529256,
+            -3.425854498353835
+          ],
+          "mean": -3.389379909019424,
+          "n": 4,
+          "sd": 0.0501050578681331,
+          "t": 6.2315,
+          "half_width": 0.1561148340526357,
+          "low": -3.5454947430720596,
+          "high": -3.2332650749667886,
+          "verdict": "lower than the control"
+        },
+        "perplexity.general_weighted.loss": {
+          "role": "primary",
+          "differences": [
+            0.04690178928436106,
+            0.04947479086798534,
+            0.05032547091972761,
+            0.053034432020191424
+          ],
+          "mean": 0.04993412077306636,
+          "n": 4,
+          "sd": 0.002527917653289454,
+          "t": 6.2315,
+          "half_width": 0.007876359428236616,
+          "low": 0.04205776134482975,
+          "high": 0.05781048020130297,
+          "verdict": "higher than the control"
+        },
+        "voice.authorship.discriminator.auc": {
+          "role": "exploratory",
+          "differences": [
+            -0.32034860719223524,
+            -0.3225430019972815,
+            -0.3285925098814023,
+            -0.34765722969069124
+          ],
+          "mean": -0.3297853371904026
+        },
+        "voice.authorship.attribution.generated.attributed_to_target": {
+          "role": "exploratory",
+          "differences": [
+            0.845703125,
+            0.869140625,
+            0.916015625,
+            0.88671875
+          ],
+          "mean": 0.87939453125
+        },
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": {
+          "role": "exploratory",
+          "differences": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": {
+          "role": "exploratory",
+          "differences": [
+            -0.06279431204390451,
+            -0.05598148712414525,
+            -0.049050369323960015,
+            -0.06145977914324552
+          ],
+          "mean": -0.05732148690881382
+        },
+        "degeneration.generated.rep_4": {
+          "role": "exploratory",
+          "differences": [
+            -0.0048421893912103265,
+            -0.001037291654837201,
+            -0.004647995581079957,
+            0.0066526414189991175
+          ],
+          "mean": -0.0009687088020320918
+        },
+        "degeneration.generated.distinct_2": {
+          "role": "exploratory",
+          "differences": [
+            -0.017844134825734992,
+            0.01023850795165615,
+            -0.009390964669278912,
+            -0.01746605606590712
+          ],
+          "mean": -0.008615661902316218
+        },
+        "code.valid": {
+          "role": "exploratory",
+          "differences": [
+            -0.016260162601625994,
+            -0.04065040650406504,
+            -0.04878048780487804,
+            -0.14634146341463414
+          ],
+          "mean": -0.0630081300813008
+        },
+        "blimp.accuracy": {
+          "role": "exploratory",
+          "differences": [
+            -0.008507462686567102,
+            -0.015820895522387746,
+            -0.009850746268656563,
+            0.01761194029850721
+          ],
+          "mean": -0.00414179104477605
+        }
+      }
+    },
+    "50": {
+      "failed_bases": [],
+      "metrics": {
+        "perplexity.personal.loss": {
+          "role": "primary",
+          "differences": [
+            -3.5290773380523066,
+            -3.4043095622346007,
+            -3.442186407017092,
+            -3.5069607441237287
+          ],
+          "mean": -3.470633512856932,
+          "n": 4,
+          "sd": 0.057571557479353,
+          "t": 6.2315,
+          "half_width": 0.17937858021629408,
+          "low": -3.650012093073226,
+          "high": -3.291254932640638,
+          "verdict": "lower than the control"
+        },
+        "perplexity.general_weighted.loss": {
+          "role": "primary",
+          "differences": [
+            0.12601512665234837,
+            0.12808958335022025,
+            0.1344347598855684,
+            0.1400083021217151
+          ],
+          "mean": 0.13213694300246304,
+          "n": 4,
+          "sd": 0.006353372133275656,
+          "t": 6.2315,
+          "half_width": 0.019795519224253624,
+          "low": 0.11234142377820941,
+          "high": 0.15193246222671666,
+          "verdict": "higher than the control"
+        },
+        "voice.authorship.discriminator.auc": {
+          "role": "exploratory",
+          "differences": [
+            -0.3433231004961984,
+            -0.3536668557294448,
+            -0.34692288913147784,
+            -0.37960221274842665
+          ],
+          "mean": -0.3558787645263869
+        },
+        "voice.authorship.attribution.generated.attributed_to_target": {
+          "role": "exploratory",
+          "differences": [
+            0.86328125,
+            0.8828125,
+            0.888671875,
+            0.91015625
+          ],
+          "mean": 0.88623046875
+        },
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": {
+          "role": "exploratory",
+          "differences": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": {
+          "role": "exploratory",
+          "differences": [
+            -0.06966115062103875,
+            -0.05465672669656142,
+            -0.05467433228644329,
+            -0.058074883155301724
+          ],
+          "mean": -0.059266773189836294
+        },
+        "degeneration.generated.rep_4": {
+          "role": "exploratory",
+          "differences": [
+            0.0026632353639270898,
+            -0.00947441971390725,
+            0.008624348617431672,
+            0.001503442489674118
+          ],
+          "mean": 0.0008291516892814073
+        },
+        "degeneration.generated.distinct_2": {
+          "role": "exploratory",
+          "differences": [
+            -0.012966112946953823,
+            0.00046025943022132143,
+            -0.025805323531551072,
+            -0.013296891840516079
+          ],
+          "mean": -0.012902017222199913
+        },
+        "code.valid": {
+          "role": "exploratory",
+          "differences": [
+            0.13008130081300814,
+            -0.14634146341463417,
+            -0.04878048780487804,
+            -0.03252032520325204
+          ],
+          "mean": -0.024390243902439025
+        },
+        "blimp.accuracy": {
+          "role": "exploratory",
+          "differences": [
+            -0.028656716417910344,
+            -0.015970149253731192,
+            -0.044029850746268306,
+            -0.003731343283582156
+          ],
+          "mean": -0.023097014925373
+        }
+      }
+    },
+    "100": {
+      "failed_bases": [],
+      "metrics": {
+        "perplexity.personal.loss": {
+          "role": "primary",
+          "differences": [
+            -3.218573966546892,
+            -3.103806290623816,
+            -3.1258351067713264,
+            -3.1895045676511096
+          ],
+          "mean": -3.159429982898286,
+          "n": 4,
+          "sd": 0.05361934443871296,
+          "t": 6.2315,
+          "half_width": 0.1670644724349199,
+          "low": -3.326494455333206,
+          "high": -2.992365510463366,
+          "verdict": "lower than the control"
+        },
+        "perplexity.general_weighted.loss": {
+          "role": "primary",
+          "differences": [
+            1.922902704052198,
+            1.9231940061015336,
+            1.9903104076808367,
+            1.9140518524492363
+          ],
+          "mean": 1.9376147425709511,
+          "n": 4,
+          "sd": 0.03538570629486282,
+          "t": 6.2315,
+          "half_width": 0.11025301438821881,
+          "low": 1.8273617281827323,
+          "high": 2.04786775695917,
+          "verdict": "higher than the control"
+        },
+        "voice.authorship.discriminator.auc": {
+          "role": "exploratory",
+          "differences": [
+            -0.405534176820773,
+            -0.4162948613229779,
+            -0.40603733042197687,
+            -0.43613051024952554
+          ],
+          "mean": -0.4159992197038133
+        },
+        "voice.authorship.attribution.generated.attributed_to_target": {
+          "role": "exploratory",
+          "differences": [
+            0.828125,
+            0.896484375,
+            0.87890625,
+            0.87890625
+          ],
+          "mean": 0.87060546875
+        },
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": {
+          "role": "exploratory",
+          "differences": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": {
+          "role": "exploratory",
+          "differences": [
+            -0.07200587581891596,
+            -0.06589402492738208,
+            -0.04870440687287039,
+            -0.06630699612367086
+          ],
+          "mean": -0.06322782593570983
+        },
+        "degeneration.generated.rep_4": {
+          "role": "exploratory",
+          "differences": [
+            -0.0018272288021802738,
+            -0.005765019247807493,
+            0.0031769155865833745,
+            -0.006578988635919434
+          ],
+          "mean": -0.0027485802748309566
+        },
+        "degeneration.generated.distinct_2": {
+          "role": "exploratory",
+          "differences": [
+            0.08982119614115314,
+            0.1403989094771455,
+            0.10885365774703426,
+            0.1435254393926415
+          ],
+          "mean": 0.1206498006894936
+        },
+        "code.valid": {
+          "role": "exploratory",
+          "differences": [
+            -0.21951219512195122,
+            -0.34959349593495936,
+            -0.3170731707317073,
+            -0.2845528455284553
+          ],
+          "mean": -0.2926829268292683
+        },
+        "blimp.accuracy": {
+          "role": "exploratory",
+          "differences": [
+            -0.08880597014925351,
+            -0.12313432835820881,
+            -0.12626865671641774,
+            -0.08626865671641815
+          ],
+          "mean": -0.10611940298507455
+        }
+      }
+    }
+  },
+  "from_base": {
+    "0": {
+      "perplexity.personal.loss": {
+        "changes": [
+          -0.4924298523878017,
+          -0.4628706152423909,
+          -0.5562417864415607,
+          -0.16085320003196646
+        ],
+        "mean": -0.41809886352592995
+      },
+      "perplexity.general_weighted.loss": {
+        "changes": [
+          0.14770036372060158,
+          0.14832842909734767,
+          0.14819908386646974,
+          0.14873537095397227
+        ],
+        "mean": 0.1482408119095978
+      }
+    },
+    "25": {
+      "perplexity.personal.loss": {
+        "changes": [
+          -3.930467919086336,
+          -3.7994433942147934,
+          -3.9132960784944864,
+          -3.5867076983858013
+        ],
+        "mean": -3.8074787725453545
+      },
+      "perplexity.general_weighted.loss": {
+        "changes": [
+          0.19460215300496264,
+          0.197803219965333,
+          0.19852455478619735,
+          0.2017698029741637
+        ],
+        "mean": 0.19817493268266417
+      }
+    },
+    "50": {
+      "perplexity.personal.loss": {
+        "changes": [
+          -4.021507190440108,
+          -3.8671801774769916,
+          -3.9984281934586527,
+          -3.667813944155695
+        ],
+        "mean": -3.888732376382862
+      },
+      "perplexity.general_weighted.loss": {
+        "changes": [
+          0.27371549037294995,
+          0.2764180124475679,
+          0.28263384375203815,
+          0.2887436730756874
+        ],
+        "mean": 0.28037775491206085
+      }
+    },
+    "100": {
+      "perplexity.personal.loss": {
+        "changes": [
+          -3.7110038189346937,
+          -3.566676905866207,
+          -3.682076893212887,
+          -3.350357767683076
+        ],
+        "mean": -3.577528846424216
+      },
+      "perplexity.general_weighted.loss": {
+        "changes": [
+          2.0706030677727996,
+          2.0715224351988812,
+          2.1385094915473064,
+          2.0627872234032085
+        ],
+        "mean": 2.085855554480549
+      }
+    }
+  }
+}

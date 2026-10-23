@@ -1,0 +1,55 @@
+{
+  "metric": "summary.final_val_loss (general val, unrounded)",
+  "rule": "the lowest final general validation loss at 431 steps (manifest summary.final_val_loss, unrounded) among completed finite points; an exact tie goes to the lower LR; a winner at 8e-4 or 6.4e-3 earns one point a factor of two beyond it; if that point wins, revisit",
+  "grid": [
+    0.0008,
+    0.0016,
+    0.0032,
+    0.0064
+  ],
+  "extension": 0.0004,
+  "steps": 431,
+  "token_budget": 112984064,
+  "seed": 1337,
+  "data_seed": 1234,
+  "precision": "fp16",
+  "points": [
+    {
+      "run": "m10-lr-0.0004-s1337",
+      "lr": 0.0004,
+      "status": "finished",
+      "final_val_loss": 4.781072044372559
+    },
+    {
+      "run": "m10-lr-0.0008-s1337",
+      "lr": 0.0008,
+      "status": "finished",
+      "final_val_loss": 4.647108244895935
+    },
+    {
+      "run": "m10-lr-0.0016-s1337",
+      "lr": 0.0016,
+      "status": "finished",
+      "final_val_loss": 4.890069556236267
+    },
+    {
+      "run": "m10-lr-0.0032-s1337",
+      "lr": 0.0032,
+      "status": "finished",
+      "final_val_loss": 4.76591694355011
+    },
+    {
+      "run": "m10-lr-0.0064-s1337",
+      "lr": 0.0064,
+      "status": "finished",
+      "final_val_loss": 5.105146813392639
+    }
+  ],
+  "diverged": [],
+  "status": "picked",
+  "reason": null,
+  "pick": 0.0008,
+  "pick_run": "m10-lr-0.0008-s1337",
+  "next": null,
+  "margin": 0.11880869865417498
+}

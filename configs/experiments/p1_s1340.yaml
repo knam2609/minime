@@ -1,0 +1,10 @@
+# The seed-noise floor: P1 again with both seeds changed -- the initial weights
+# (training.seed) and the windows the sampler draws (data.seed).  Run name
+# p1-s1340.  The fourth seed pair, added before any floor run (2026-10-03).
+extends: p1.yaml
+
+training:
+  seed: 1340
+
+data:
+  seed: 1237

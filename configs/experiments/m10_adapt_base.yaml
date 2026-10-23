@@ -1,0 +1,32 @@
+# M10's adaptation candidates (HANDOFF §4a; README "Flagship protocol (M10)"),
+# fixed in form by the owner on 2026-10-14 and instantiated here from the
+# flagship before the first attempt.  Each starts from the unadapted
+# flagship's weights (train.py --init-from $ROOT/checkpoints/flagship-s1337/
+# last.pt) with a fresh AdamW and schedule, on the laptop (MPS, fp32).
+# scripts/run_m10_adapt.py writes the commands: both shard directories, both
+# validation sets (general first, then personal).
+#
+# F, the flagship's final optimiser LR (last.pt's param groups, = the logged
+# lr at step 3450): 8.000018e-5, the schedule's 10% floor of 8e-4.
+# L = min(3e-5, F/4) = 2.0e-5: A and B run at L, C at 2L = 4.0e-5.
+extends: ../flagship.yaml
+name: m10_adapt_base
+role: adaptation
+notes: "M10 adaptation candidate: from the flagship, 1,048,576 tokens, fresh AdamW."
+
+training:
+  batch_size: 2
+  gradient_accumulation: 4     # 8,192 tokens/step at context 1024; the smoke run's pick
+  learning_rate: null          # each candidate sets its own
+  warmup_steps: 8
+  max_steps: 128               # 1,048,576 tokens
+  log_interval: 8
+  validation_interval: 16
+  validation_batches: 16       # 32 windows of 1024 per validation set (diagnostic only)
+  # checkpoint_interval stays the flagship's 500: no step_*.pt within 128
+  # steps.  Only last.pt at step 128 is judged.
+
+data:
+  seed: 3000                   # identical for the three; no other run uses it
+  # Each candidate writes all four keys: `extends` merges mixtures.
+  mixture: { web: 7, dialogue: 2, code: 1, chat: 0 }

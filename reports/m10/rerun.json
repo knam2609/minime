@@ -1,0 +1,153 @@
+{
+  "rule": "accepted iff, against the unadapted flagship on the same native-context val evaluation, personal CE falls by >= 0.1 and general-weighted CE rises by <= 0.02; among those accepted, the largest personal fall, an exact tie to the lower general CE; none accepted -> the unadapted flagship stays",
+  "status": "accepted",
+  "pick": "c",
+  "pick_run": "m10-rerun-c",
+  "final_choice_frozen": false,
+  "flagship": {
+    "run": "flagship-s1337",
+    "last_sha256": "26efe54f47d1c1479b9bd3a76fa1ab2d51448b967a16b5d672278dc76c547296",
+    "final_lr": 8.000017904042781e-05,
+    "values": {
+      "perplexity.personal.loss": 3.777112982614388,
+      "perplexity.general_weighted.loss": 3.383645070587148,
+      "voice.authorship.discriminator.auc": 0.6624286389484035,
+      "voice.authorship.attribution.generated.attributed_to_target": 0.806640625,
+      "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.7692307692307693,
+      "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04452578469027413,
+      "degeneration.generated.rep_4": 0.012279002402131126,
+      "degeneration.generated.distinct_2": 0.7106529209621993,
+      "code.valid": 0.5447154471544715,
+      "blimp.accuracy": 0.7392537313432836
+    }
+  },
+  "l": 2.0000044760106952e-05,
+  "token_budget": 1048576,
+  "data_seed": 3000,
+  "precision": "fp32",
+  "eval": {
+    "file": "eval-last.json",
+    "eval_version": 1,
+    "eval_config_fingerprint": "1209d6384ca0",
+    "split": "val",
+    "tokenizer.id": "minime-16k@92bb9c71bf6e2da5",
+    "device.device": "mps",
+    "device.precision": "fp32",
+    "device.torch": "2.11.0",
+    "eval_sets_digest": "902f0769686efc0b"
+  },
+  "candidates": {
+    "a": {
+      "run": "m10-rerun-a",
+      "status": "finished",
+      "chat_share": 0.1,
+      "lr": 2e-05,
+      "lr_in_l": 1,
+      "final_val_losses": {
+        "general": 3.3626341372728348,
+        "personal": 3.7367039024829865
+      },
+      "values": {
+        "perplexity.personal.loss": 3.722215179753603,
+        "perplexity.general_weighted.loss": 3.383105514338586,
+        "voice.authorship.discriminator.auc": 0.7069530962318669,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.88671875,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 1.0,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04045948351980967,
+        "degeneration.generated.rep_4": 0.016839152498315385,
+        "degeneration.generated.distinct_2": 0.7051448666004129,
+        "code.valid": 0.5040650406504065,
+        "blimp.accuracy": 0.739402985074627
+      },
+      "change": {
+        "perplexity.personal.loss": -0.05489780286078494,
+        "perplexity.general_weighted.loss": -0.0005395562485621674,
+        "voice.authorship.discriminator.auc": 0.044524457283463326,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.080078125,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.23076923076923073,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": -0.004066301170464456,
+        "degeneration.generated.rep_4": 0.004560150096184259,
+        "degeneration.generated.distinct_2": -0.005508054361786474,
+        "code.valid": -0.04065040650406504,
+        "blimp.accuracy": 0.00014925373134333508
+      },
+      "accepted": false,
+      "reason": "personal CE -0.0549, needs <= -0.10"
+    },
+    "b": {
+      "run": "m10-rerun-b",
+      "status": "finished",
+      "chat_share": 0.25,
+      "lr": 2e-05,
+      "lr_in_l": 1,
+      "final_val_losses": {
+        "general": 3.3628519475460052,
+        "personal": 3.692519560456276
+      },
+      "values": {
+        "perplexity.personal.loss": 3.678997972693988,
+        "perplexity.general_weighted.loss": 3.384069309239465,
+        "voice.authorship.discriminator.auc": 0.6812605881225885,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.888671875,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 1.0,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04024165762956074,
+        "degeneration.generated.rep_4": 0.020116738891807786,
+        "degeneration.generated.distinct_2": 0.6926400363829304,
+        "code.valid": 0.4878048780487805,
+        "blimp.accuracy": 0.7400000000000001
+      },
+      "change": {
+        "perplexity.personal.loss": -0.09811500992040001,
+        "perplexity.general_weighted.loss": 0.0004242386523167774,
+        "voice.authorship.discriminator.auc": 0.01883194917418496,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.08203125,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.23076923076923073,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": -0.004284127060713391,
+        "degeneration.generated.rep_4": 0.00783773648967666,
+        "degeneration.generated.distinct_2": -0.018012884579268973,
+        "code.valid": -0.05691056910569103,
+        "blimp.accuracy": 0.0007462686567164534
+      },
+      "accepted": false,
+      "reason": "personal CE -0.0981, needs <= -0.10"
+    },
+    "c": {
+      "run": "m10-rerun-c",
+      "status": "finished",
+      "chat_share": 0.25,
+      "lr": 4e-05,
+      "lr_in_l": 2,
+      "final_val_losses": {
+        "general": 3.368751809000969,
+        "personal": 3.6513515263795853
+      },
+      "values": {
+        "perplexity.personal.loss": 3.6372010807365664,
+        "perplexity.general_weighted.loss": 3.3902095882041863,
+        "voice.authorship.discriminator.auc": 0.680999169058762,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.900390625,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 1.0,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04198820668827117,
+        "degeneration.generated.rep_4": 0.018541865113729423,
+        "degeneration.generated.distinct_2": 0.6927118516850559,
+        "code.valid": 0.43902439024390244,
+        "blimp.accuracy": 0.744179104477612
+      },
+      "change": {
+        "perplexity.personal.loss": -0.13991190187782143,
+        "perplexity.general_weighted.loss": 0.006564517617038135,
+        "voice.authorship.discriminator.auc": 0.018570530110358474,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.09375,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.23076923076923073,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": -0.002537578002002959,
+        "degeneration.generated.rep_4": 0.006262862711598297,
+        "degeneration.generated.distinct_2": -0.01794106927714345,
+        "code.valid": -0.10569105691056907,
+        "blimp.accuracy": 0.004925373134328392
+      },
+      "accepted": true,
+      "reason": null
+    }
+  },
+  "reading": "description: the three candidates retrained, configs unchanged, after the MPS batch fix (HANDOFF \u00a73 M10g), gated as the originals were; the final choice stays reports/m10/adaptation.json's, and none of these is evaluated on test"
+}

@@ -1,0 +1,21 @@
+# ~1.4M params.  Runs on an M1 laptop.  Exists to prove correctness, not to
+# produce a useful model: smoke tests, the overfitting test, and CI.
+extends: base.yaml
+name: tiny
+notes: "Local development model. Small enough to overfit a single batch in seconds."
+
+model:
+  vocab_size: 4096
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  context_length: 128
+
+training:
+  batch_size: 32
+  gradient_accumulation: 1     # 4,096 tokens/step
+  learning_rate: 1.0e-3
+  warmup_steps: 50
+  max_steps: 2000
+  validation_interval: 100
+  checkpoint_interval: 500

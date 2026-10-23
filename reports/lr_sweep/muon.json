@@ -1,0 +1,43 @@
+{
+  "sweep": "muon",
+  "key": "training.muon_lr",
+  "optimizer": "muon",
+  "winner": 0.02,
+  "winner_run": "e4-lr-muon-0.02-s1337",
+  "winner_final_val_loss": 4.0590668559074405,
+  "margin": 0.039740872383116965,
+  "at_edge": false,
+  "anchor": {
+    "sweep": "adamw",
+    "key": "training.learning_rate",
+    "value": 0.0024
+  },
+  "token_budget": 75366400,
+  "seed": 1337,
+  "points": [
+    {
+      "run": "e4-lr-muon-0.01-s1337",
+      "value": 0.01,
+      "status": "finished",
+      "final_val_loss": 4.1044135093688965
+    },
+    {
+      "run": "e4-lr-muon-0.02-s1337",
+      "value": 0.02,
+      "status": "finished",
+      "final_val_loss": 4.0590668559074405
+    },
+    {
+      "run": "e4-lr-muon-0.04-s1337",
+      "value": 0.04,
+      "status": "finished",
+      "final_val_loss": 4.0988077282905575
+    },
+    {
+      "run": "e4-lr-muon-0.08-s1337",
+      "value": 0.08,
+      "status": "finished",
+      "final_val_loss": 4.48826220035553
+    }
+  ]
+}

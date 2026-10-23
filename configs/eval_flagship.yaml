@@ -1,0 +1,14 @@
+# The flagship's native-context evaluation (M10): configs/eval.yaml with the
+# CE windows scored 8 to a forward pass.  At the flagship's 1024-token context
+# eval.yaml's 32 windows hold ~4 GiB of logits and their log-softmax at once:
+# on the 8 GB laptop MPS ran out of memory at 32 and thrashed swap at 16
+# (697 tok/s); 8 ran at ~4,800 tok/s in 3.1 GiB (measured 2026-10-17, a
+# random flagship-shaped model).  The windows, the prompts and every other
+# setting are eval.yaml's; the batch changes the summation order only.  The
+# fingerprint differs from eval.yaml's, so these files are compared with each
+# other alone: the adaptation gate, the unadapted flagship against candidates
+# A, B and C (HANDOFF §4a).
+extends: eval.yaml
+
+perplexity:
+  batch_size: 8

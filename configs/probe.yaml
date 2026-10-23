@@ -1,0 +1,21 @@
+# ~16.9M params, ~300M tokens (~18 tokens/param, near compute-optimal).
+# This is the scale every experiment arm runs at: ~45-90 min on a Kaggle T4.
+extends: base.yaml
+name: probe
+notes: "Experiment scale. All ablation arms share this config apart from one variable."
+
+model:
+  vocab_size: 16384
+  d_model: 384
+  n_heads: 6
+  n_layers: 6
+  context_length: 512
+
+training:
+  batch_size: 32
+  gradient_accumulation: 8     # 131,072 tokens/step -- held constant across devices
+  learning_rate: 2.4e-3        # the E4 AdamW sweep's pick (reports/lr_sweep/adamw.json)
+  warmup_steps: 200
+  max_steps: 2300              # ~301M tokens
+  validation_interval: 100
+  checkpoint_interval: 500

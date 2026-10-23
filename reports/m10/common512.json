@@ -1,0 +1,300 @@
+{
+  "split": "val",
+  "context_length": 512,
+  "eval_file": "eval-last-ctx512.json",
+  "eval": {
+    "file": "eval-last-ctx512.json",
+    "eval_version": 1,
+    "eval_config_fingerprint": "d5f6c3ab52c9",
+    "split": "val",
+    "tokenizer.id": "minime-16k@92bb9c71bf6e2da5",
+    "device.device": "mps",
+    "device.precision": "fp32",
+    "device.torch": "2.11.0",
+    "eval_sets_digest": "f645e148d370e61d"
+  },
+  "reading": "descriptive: the probes are the controlled study, the flagship and its adaptation single runs of another size, budget and context; no difference is attributed to any one of them",
+  "adaptation_final": true,
+  "native_agreement": {
+    "max_abs_difference": 1.233267035161134e-07,
+    "allowed": 0.0001
+  },
+  "groups": {
+    "P1": {
+      "runs": {
+        "p1-s1337": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 7.512006933673912,
+            "perplexity.general_weighted.loss": 3.714866425365582,
+            "perplexity.general.web.loss": 3.707075486962025,
+            "perplexity.general.dialogue.loss": 4.423416804849687,
+            "perplexity.general.code.loss": 2.352302235222271
+          }
+        },
+        "p1-s1338": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 7.360850788994917,
+            "perplexity.general_weighted.loss": 3.7231101126275608,
+            "perplexity.general.web.loss": 3.7151062484893562,
+            "perplexity.general.dialogue.loss": 4.4268284174279575,
+            "perplexity.general.code.loss": 2.3717005519941914
+          }
+        },
+        "p1-s1339": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 7.491993722917456,
+            "perplexity.general_weighted.loss": 3.7166919421554203,
+            "perplexity.general.web.loss": 3.7094782177631633,
+            "perplexity.general.dialogue.loss": 4.42125639641525,
+            "perplexity.general.code.loss": 2.3580591043815535
+          }
+        },
+        "p1-s1340": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 7.153794472842473,
+            "perplexity.general_weighted.loss": 3.718820863430907,
+            "perplexity.general.web.loss": 3.7128071949778616,
+            "perplexity.general.dialogue.loss": 4.419812941910407,
+            "perplexity.general.code.loss": 2.3589323856432145
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 7.379661479607189,
+        "perplexity.general_weighted.loss": 3.7183723358948675,
+        "perplexity.general.web.loss": 3.7111167870481014,
+        "perplexity.general.dialogue.loss": 4.422828640150826,
+        "perplexity.general.code.loss": 2.3602485693103077
+      },
+      "sd": {
+        "perplexity.personal.loss": 0.16482677667317572,
+        "perplexity.general_weighted.loss": 0.003547902529587616,
+        "perplexity.general.web.loss": 0.0035491922671465393,
+        "perplexity.general.dialogue.loss": 0.0030501662370527806,
+        "perplexity.general.code.loss": 0.008181650790038953
+      }
+    },
+    "P4": {
+      "runs": {
+        "p4-s1337": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.811970065155964,
+            "perplexity.general_weighted.loss": 3.7203346486212214,
+            "perplexity.general.web.loss": 3.712028635262344,
+            "perplexity.general.dialogue.loss": 4.42507753345316,
+            "perplexity.general.code.loss": 2.3689909724694793
+          }
+        },
+        "p4-s1338": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.793414113557255,
+            "perplexity.general_weighted.loss": 3.717864288940341,
+            "perplexity.general.web.loss": 3.7102900276535666,
+            "perplexity.general.dialogue.loss": 4.421779657139267,
+            "perplexity.general.code.loss": 2.363053381549902
+          }
+        },
+        "p4-s1339": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.8115740168641867,
+            "perplexity.general_weighted.loss": 3.7257621654899307,
+            "perplexity.general.web.loss": 3.721135009207972,
+            "perplexity.general.dialogue.loss": 4.42035095825385,
+            "perplexity.general.code.loss": 2.3689746739357953
+          }
+        },
+        "p4-s1340": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.8203132630839765,
+            "perplexity.general_weighted.loss": 3.7241334163932422,
+            "perplexity.general.web.loss": 3.71821075333001,
+            "perplexity.general.dialogue.loss": 4.424034085022825,
+            "perplexity.general.code.loss": 2.3657907205767
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 3.8093178646653456,
+        "perplexity.general_weighted.loss": 3.7220236298611837,
+        "perplexity.general.web.loss": 3.715416106363473,
+        "perplexity.general.dialogue.loss": 4.422810558467275,
+        "perplexity.general.code.loss": 2.366702437132969
+      },
+      "sd": {
+        "perplexity.personal.loss": 0.01134243471628107,
+        "perplexity.general_weighted.loss": 0.0035861131411323703,
+        "perplexity.general.web.loss": 0.005107757003275554,
+        "perplexity.general.dialogue.loss": 0.00214076182520255,
+        "perplexity.general.code.loss": 0.0028604945843834135
+      }
+    },
+    "E1 25/75": {
+      "runs": {
+        "e1-m25-p1s1337": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.581539014587576,
+            "perplexity.general_weighted.loss": 3.9094685836031977,
+            "perplexity.general.web.loss": 3.8928656044582555,
+            "perplexity.general.dialogue.loss": 4.629797044813475,
+            "perplexity.general.code.loss": 2.5850325151972346
+          }
+        },
+        "e1-m25-p1s1338": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.56140727145342,
+            "perplexity.general_weighted.loss": 3.920913319137336,
+            "perplexity.general.web.loss": 3.9030461616535645,
+            "perplexity.general.dialogue.loss": 4.642195082031773,
+            "perplexity.general.code.loss": 2.6034198957348624
+          }
+        },
+        "e1-m25-p1s1339": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.5786976444229692,
+            "perplexity.general_weighted.loss": 3.915216511976265,
+            "perplexity.general.web.loss": 3.898900311114052,
+            "perplexity.general.dialogue.loss": 4.6294323095375915,
+            "perplexity.general.code.loss": 2.6009983228891014
+          }
+        },
+        "e1-m25-p1s1340": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.567086774456672,
+            "perplexity.general_weighted.loss": 3.9205906559534283,
+            "perplexity.general.web.loss": 3.903659118363263,
+            "perplexity.general.dialogue.loss": 4.638693157568805,
+            "perplexity.general.code.loss": 2.602906415853828
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 3.572182676230159,
+        "perplexity.general_weighted.loss": 3.916547267667557,
+        "perplexity.general.web.loss": 3.8996177988972835,
+        "perplexity.general.dialogue.loss": 4.6350293984879105,
+        "perplexity.general.code.loss": 2.5980892874187567
+      },
+      "sd": {
+        "perplexity.personal.loss": 0.009523014946248092,
+        "perplexity.general_weighted.loss": 0.005394134872247893,
+        "perplexity.general.web.loss": 0.004973022309631802,
+        "perplexity.general.dialogue.loss": 0.0064154781828994825,
+        "perplexity.general.code.loss": 0.00876663940918722
+      }
+    },
+    "E1 50/50": {
+      "runs": {
+        "e1-m50-p1s1337": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.4904997432338036,
+            "perplexity.general_weighted.loss": 3.9885819210124254,
+            "perplexity.general.web.loss": 3.96807032930381,
+            "perplexity.general.dialogue.loss": 4.73044522384391,
+            "perplexity.general.code.loss": 2.6484364573097543
+          }
+        },
+        "e1-m50-p1s1338": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.493670611517925,
+            "perplexity.general_weighted.loss": 3.9995281130707694,
+            "perplexity.general.web.loss": 3.974116985088608,
+            "perplexity.general.dialogue.loss": 4.75124181128936,
+            "perplexity.general.code.loss": 2.673978612508707
+          }
+        },
+        "e1-m50-p1s1339": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.493565529458803,
+            "perplexity.general_weighted.loss": 3.99932577875734,
+            "perplexity.general.web.loss": 3.969117015188191,
+            "perplexity.general.dialogue.loss": 4.766767286608415,
+            "perplexity.general.code.loss": 2.675904108039229
+          }
+        },
+        "e1-m50-p1s1340": {
+          "native_context_length": 512,
+          "values": {
+            "perplexity.personal.loss": 3.485980528686778,
+            "perplexity.general_weighted.loss": 4.007564562229194,
+            "perplexity.general.web.loss": 3.983295477541422,
+            "perplexity.general.dialogue.loss": 4.75902814663576,
+            "perplexity.general.code.loss": 2.6745209862304637
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 3.4909291032243273,
+        "perplexity.general_weighted.loss": 3.9987500937674323,
+        "perplexity.general.web.loss": 3.9736499517805077,
+        "perplexity.general.dialogue.loss": 4.751870617094362,
+        "perplexity.general.code.loss": 2.6682100410220384
+      },
+      "sd": {
+        "perplexity.personal.loss": 0.003611987032499782,
+        "perplexity.general_weighted.loss": 0.007789379921470666,
+        "perplexity.general.web.loss": 0.006950635185548897,
+        "perplexity.general.dialogue.loss": 0.015626727791658943,
+        "perplexity.general.code.loss": 0.013207292512248439
+      }
+    },
+    "flagship": {
+      "runs": {
+        "flagship-s1337": {
+          "native_context_length": 1024,
+          "values": {
+            "perplexity.personal.loss": 3.8377971202351495,
+            "perplexity.general_weighted.loss": 3.438256028884549,
+            "perplexity.general.web.loss": 3.417661058798974,
+            "perplexity.general.dialogue.loss": 4.185844573645099,
+            "perplexity.general.code.loss": 2.087243729962467
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 3.8377971202351495,
+        "perplexity.general_weighted.loss": 3.438256028884549,
+        "perplexity.general.web.loss": 3.417661058798974,
+        "perplexity.general.dialogue.loss": 4.185844573645099,
+        "perplexity.general.code.loss": 2.087243729962467
+      },
+      "sd": null
+    },
+    "adaptation": {
+      "runs": {
+        "m10-adapt-c": {
+          "native_context_length": 1024,
+          "values": {
+            "perplexity.personal.loss": 3.6844291959197606,
+            "perplexity.general_weighted.loss": 3.4519325649773696,
+            "perplexity.general.web.loss": 3.4330675023308914,
+            "perplexity.general.dialogue.loss": 4.192843688967055,
+            "perplexity.general.code.loss": 2.102165755523343
+          }
+        }
+      },
+      "mean": {
+        "perplexity.personal.loss": 3.6844291959197606,
+        "perplexity.general_weighted.loss": 3.4519325649773696,
+        "perplexity.general.web.loss": 3.4330675023308914,
+        "perplexity.general.dialogue.loss": 4.192843688967055,
+        "perplexity.general.code.loss": 2.102165755523343
+      },
+      "sd": null
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "rule": "accepted iff, against the unadapted flagship on the same native-context val evaluation, personal CE falls by >= 0.1 and general-weighted CE rises by <= 0.02; among those accepted, the largest personal fall, an exact tie to the lower general CE; none accepted -> the unadapted flagship stays",
+  "status": "accepted",
+  "pick": "c",
+  "pick_run": "m10-adapt-c",
+  "final_choice_frozen": true,
+  "final_choice": "c",
+  "final_run": "m10-adapt-c",
+  "final_choice_made": "2026-10-19, by the owner, after reading the voice samples",
+  "flagship": {
+    "run": "flagship-s1337",
+    "last_sha256": "26efe54f47d1c1479b9bd3a76fa1ab2d51448b967a16b5d672278dc76c547296",
+    "final_lr": 8.000017904042781e-05,
+    "values": {
+      "perplexity.personal.loss": 3.777112982614388,
+      "perplexity.general_weighted.loss": 3.383645070587148,
+      "voice.authorship.discriminator.auc": 0.6624286389484035,
+      "voice.authorship.attribution.generated.attributed_to_target": 0.806640625,
+      "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.7692307692307693,
+      "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04452578469027413,
+      "degeneration.generated.rep_4": 0.012279002402131126,
+      "degeneration.generated.distinct_2": 0.7106529209621993,
+      "code.valid": 0.5447154471544715,
+      "blimp.accuracy": 0.7392537313432836
+    }
+  },
+  "l": 2.0000044760106952e-05,
+  "token_budget": 1048576,
+  "data_seed": 3000,
+  "precision": "fp32",
+  "eval": {
+    "file": "eval-last.json",
+    "eval_version": 1,
+    "eval_config_fingerprint": "1209d6384ca0",
+    "split": "val",
+    "tokenizer.id": "minime-16k@92bb9c71bf6e2da5",
+    "device.device": "mps",
+    "device.precision": "fp32",
+    "device.torch": "2.11.0",
+    "eval_sets_digest": "902f0769686efc0b"
+  },
+  "candidates": {
+    "a": {
+      "run": "m10-adapt-a",
+      "status": "finished",
+      "chat_share": 0.1,
+      "lr": 2e-05,
+      "lr_in_l": 1,
+      "final_val_losses": {
+        "general": 3.3641702085733414,
+        "personal": 3.7450048327445984
+      },
+      "values": {
+        "perplexity.personal.loss": 3.7307305109277324,
+        "perplexity.general_weighted.loss": 3.3832978985915725,
+        "voice.authorship.discriminator.auc": 0.6895246464549606,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.873046875,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.9090909090909091,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.0499409972731334,
+        "degeneration.generated.rep_4": 0.027870362308621287,
+        "degeneration.generated.distinct_2": 0.6890392216479173,
+        "code.valid": 0.5203252032520326,
+        "blimp.accuracy": 0.7523880597014925
+      },
+      "change": {
+        "perplexity.personal.loss": -0.046382471686655435,
+        "perplexity.general_weighted.loss": -0.0003471719955756569,
+        "voice.authorship.discriminator.auc": 0.02709600750655705,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.06640625,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.1398601398601398,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.00541521258285927,
+        "degeneration.generated.rep_4": 0.015591359906490162,
+        "degeneration.generated.distinct_2": -0.02161369931428203,
+        "code.valid": -0.024390243902438935,
+        "blimp.accuracy": 0.013134328358208824
+      },
+      "accepted": false,
+      "reason": "personal CE -0.0464, needs <= -0.10"
+    },
+    "b": {
+      "run": "m10-adapt-b",
+      "status": "finished",
+      "chat_share": 0.25,
+      "lr": 2e-05,
+      "lr_in_l": 1,
+      "final_val_losses": {
+        "general": 3.3645001351833344,
+        "personal": 3.7052900940179825
+      },
+      "values": {
+        "perplexity.personal.loss": 3.6920892641144945,
+        "perplexity.general_weighted.loss": 3.3846838244480213,
+        "voice.authorship.discriminator.auc": 0.6687987291009436,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.8828125,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.8333333333333334,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04205470688242301,
+        "degeneration.generated.rep_4": 0.020847272168252082,
+        "degeneration.generated.distinct_2": 0.6965020576131687,
+        "code.valid": 0.4715447154471545,
+        "blimp.accuracy": 0.753134328358209
+      },
+      "change": {
+        "perplexity.personal.loss": -0.08502371849989343,
+        "perplexity.general_weighted.loss": 0.001038753860873154,
+        "voice.authorship.discriminator.auc": 0.006370090152540087,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.076171875,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.0641025641025641,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": -0.0024710778078511214,
+        "degeneration.generated.rep_4": 0.008568269766120956,
+        "degeneration.generated.distinct_2": -0.014150863349030596,
+        "code.valid": -0.07317073170731703,
+        "blimp.accuracy": 0.013880597014925389
+      },
+      "accepted": false,
+      "reason": "personal CE -0.0850, needs <= -0.10"
+    },
+    "c": {
+      "run": "m10-adapt-c",
+      "status": "finished",
+      "chat_share": 0.25,
+      "lr": 4e-05,
+      "lr_in_l": 2,
+      "final_val_losses": {
+        "general": 3.37522641569376,
+        "personal": 3.677409380674362
+      },
+      "values": {
+        "perplexity.personal.loss": 3.6636308873701617,
+        "perplexity.general_weighted.loss": 3.3946523421365997,
+        "voice.authorship.discriminator.auc": 0.6982159324873745,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.921875,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 1.0,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.04605672733106801,
+        "degeneration.generated.rep_4": 0.021708927348740747,
+        "degeneration.generated.distinct_2": 0.7052386078220308,
+        "code.valid": 0.45528455284552843,
+        "blimp.accuracy": 0.7582089552238804
+      },
+      "change": {
+        "perplexity.personal.loss": -0.11348209524422614,
+        "perplexity.general_weighted.loss": 0.01100727154945158,
+        "voice.authorship.discriminator.auc": 0.03578729353897092,
+        "voice.authorship.attribution.generated.attributed_to_target": 0.115234375,
+        "voice.stylometry.delta.questioned.generated.nearest_is_target": 0.23076923076923073,
+        "voice.stylometry.distance_to_real.generated.function_word_jsd": 0.0015309426407938836,
+        "degeneration.generated.rep_4": 0.009429924946609622,
+        "degeneration.generated.distinct_2": -0.005414313140168492,
+        "code.valid": -0.08943089430894308,
+        "blimp.accuracy": 0.018955223880596783
+      },
+      "accepted": true,
+      "reason": null
+    }
+  }
+}

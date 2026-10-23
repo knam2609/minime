@@ -1,0 +1,10 @@
+# P4 again with both seeds changed, at the floor's seed pair: the initial
+# weights (training.seed) and the windows the sampler draws (data.seed).
+# Run name p4-s1338.
+extends: p4.yaml
+
+training:
+  seed: 1338
+
+data:
+  seed: 1235

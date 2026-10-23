@@ -1,0 +1,182 @@
+{
+  "eval_version": 1,
+  "eval_config_fingerprint": "d5f6c3ab52c9",
+  "eval_config": {
+    "version": 1,
+    "seed": 1234,
+    "batch_size": 32,
+    "families": [
+      "perplexity"
+    ],
+    "sampling": {
+      "temperature": 1.0,
+      "top_k": 50
+    },
+    "perplexity": {
+      "max_tokens": 1000000,
+      "general_weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      },
+      "context_length": 512,
+      "batch_size": 16
+    },
+    "voice": {
+      "prompts": 512,
+      "prompt_tokens": 128,
+      "max_new_tokens": 64,
+      "profile_words": 30000,
+      "chunk_words": 300,
+      "mfw": 100,
+      "folds": 5,
+      "classifier_docs": 2000
+    },
+    "degeneration": {
+      "prompts": 128,
+      "prompt_tokens": 64,
+      "max_new_tokens": 128
+    },
+    "code": {
+      "prompts": 200,
+      "prompt_tokens": 256,
+      "max_new_tokens": 128,
+      "per_file": 2
+    },
+    "blimp": {
+      "pairs_per_paradigm": 100,
+      "path": ""
+    }
+  },
+  "split": "test",
+  "checkpoint": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/p4-s1340/last.pt",
+    "step": 2300,
+    "config_name": "p4",
+    "config_fingerprint": "1603b05c4820",
+    "params": 16913280,
+    "tokens_seen": 301465600
+  },
+  "tokenizer": {
+    "id": "minime-16k@92bb9c71bf6e2da5",
+    "dev": false
+  },
+  "git_revision": "e721338",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "created": "2026-10-18T16:02:20+00:00",
+  "shards": {
+    "general/code.test": {
+      "tokens": 401555,
+      "docs": 155
+    },
+    "general/code.val": {
+      "tokens": 502476,
+      "docs": 153
+    },
+    "general/dialogue.test": {
+      "tokens": 908110,
+      "docs": 35689
+    },
+    "general/dialogue.val": {
+      "tokens": 910868,
+      "docs": 35776
+    },
+    "general/web.test": {
+      "tokens": 3119466,
+      "docs": 2769
+    },
+    "general/web.val": {
+      "tokens": 3124620,
+      "docs": 2788
+    },
+    "personal/split": {
+      "tokens": 24948,
+      "docs": 2240
+    },
+    "personal/train/chat.train": {
+      "tokens": 293534,
+      "docs": 26464
+    },
+    "personal/train/comment.train": {
+      "tokens": 800,
+      "docs": 62
+    }
+  },
+  "seconds": {
+    "perplexity": 205.1
+  },
+  "perplexity": {
+    "context_length": 512,
+    "native_context_length": 512,
+    "personal": {
+      "loss": 3.798307925497367,
+      "ppl": 44.62561071504522,
+      "bits_per_byte": 1.8136833761866105,
+      "tokens": 24947,
+      "windows": 49,
+      "coverage": 1.0,
+      "digest": "52ef0266f28df345"
+    },
+    "general": {
+      "web": {
+        "loss": 3.7350513784933015,
+        "ppl": 41.89017776203143,
+        "bits_per_byte": 1.277900646267789,
+        "tokens": 999936,
+        "windows": 1953,
+        "coverage": 0.320547273330523,
+        "digest": "23e665d9f93d4fc3"
+      },
+      "dialogue": {
+        "loss": 4.4229885750869045,
+        "ppl": 83.34499630713758,
+        "bits_per_byte": 1.8177145775066343,
+        "tokens": 908109,
+        "windows": 1774,
+        "coverage": 1.0,
+        "digest": "80bed5353ab63ec3"
+      },
+      "code": {
+        "loss": 2.338406759162042,
+        "ppl": 10.364709921647302,
+        "bits_per_byte": 1.0487862384241735,
+        "tokens": 401554,
+        "windows": 785,
+        "coverage": 1.0,
+        "digest": "fd7dae1869de12ea"
+      }
+    },
+    "general_weighted": {
+      "loss": 3.7329743558788966,
+      "ppl": 41.80326121056639,
+      "weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      }
+    }
+  },
+  "eval_sets": {
+    "ce/personal/test": {
+      "digest": "52ef0266f28df345",
+      "tokens": 24947
+    },
+    "ce/general/web.test": {
+      "digest": "23e665d9f93d4fc3",
+      "tokens": 999936
+    },
+    "ce/general/dialogue.test": {
+      "digest": "80bed5353ab63ec3",
+      "tokens": 908109
+    },
+    "ce/general/code.test": {
+      "digest": "fd7dae1869de12ea",
+      "tokens": 401554
+    }
+  }
+}

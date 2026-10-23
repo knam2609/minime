@@ -1,0 +1,69 @@
+date,experiment,run_id,venue,device,gpu_type,runtime_hours,est_cost_usd,tokens_processed,model_params,tokens_per_second,final_val_loss,notes
+2026-09-30,e4-lr,e4-lr-adamw-0.0006-s1337,kaggle-free,cuda,Tesla T4,1.297,0.0,75366400,16913280,16329.3,4.80184,"E4 LR sweep point: probe model, 1/4 budget."
+2026-09-30,e4-lr,e4-lr-adamw-0.0012-s1337,kaggle-free,cuda,Tesla T4,1.3216,0.0,75366400,16913280,16025.2,4.5137,"E4 LR sweep point: probe model, 1/4 budget."
+2026-09-30,e4-lr,e4-lr-adamw-0.0024-s1337,kaggle-free,cuda,Tesla T4,1.3004,0.0,75366400,16913280,16290.4,4.45875,"E4 LR sweep point: probe model, 1/4 budget."
+2026-09-30,e4-lr,e4-lr-adamw-0.0048-s1337,kaggle-free,cuda,Tesla T4,1.3297,0.0,75366400,16913280,15932.1,4.54226,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-lr-muon-0.01-s1337,kaggle-free,cuda,Tesla T4,0.3,0.0,75366400,16913280,70622.3,4.10441,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-lr-muon-0.02-s1337,kaggle-free,cuda,Tesla T4,0.3333,0.0,75366400,16913280,63541.4,4.05907,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-lr-muon-0.04-s1337,kaggle-free,cuda,Tesla T4,0.3025,0.0,75366400,16913280,70035.0,4.09881,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-lr-muon-0.08-s1337,kaggle-free,cuda,Tesla T4,0.3309,0.0,75366400,16913280,64009.5,4.48826,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-fp16-adamw-0.0024-s1337,kaggle-free,cuda,Tesla T4,0.2944,0.0,75366400,16913280,71977.8,4.45188,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-02,e4-lr,e4-fp16-adamw-0.0012-s1337,kaggle-free,cuda,Tesla T4,0.3277,0.0,75366400,16913280,64656.8,4.53563,"E4 LR sweep point: probe model, 1/4 budget."
+2026-10-03,pretrain,p1-s1338,kaggle-free,cuda,Tesla T4,1.2535,0.0,301465600,16913280,67536.9,3.71517,"P1 baseline pretrain: probe, AdamW, RoPE."
+2026-10-03,pretrain,p1-s1337,kaggle-free,cuda,Tesla T4,1.2991,0.0,301465600,16913280,65152.8,3.70402,"P1 baseline pretrain: probe, AdamW, RoPE."
+2026-10-03,pretrain,p1-s1339,kaggle-free,cuda,Tesla T4,1.2549,0.0,301465600,16913280,67435.2,3.70871,"P1 baseline pretrain: probe, AdamW, RoPE."
+2026-10-03,pretrain,p1-s1340,kaggle-free,cuda,Tesla T4,1.3051,0.0,301465600,16913280,64844.4,3.70829,"P1 baseline pretrain: probe, AdamW, RoPE."
+2026-10-03,pretrain,p2-s1337,kaggle-free,cuda,Tesla T4,1.1254,0.0,301465600,17109888,75207.2,3.81891,"P2 pretrain (E3): probe, AdamW, learned positions."
+2026-10-03,pretrain,p3-s1337,kaggle-free,cuda,Tesla T4,1.3353,0.0,301465600,16913280,63342.6,3.6665,"P3 pretrain (E4): probe, Muon, RoPE."
+2026-10-05,E1-pilot,e1-pilot-0.0001,local,mps,Apple Silicon (MPS),0.1499,0.0,2097152,16913280,4313.2,3.77231,E1 LR pilot: 50/50 at 1.0e-4.
+2026-10-05,E1-pilot,e1-pilot-0.0003,local,mps,Apple Silicon (MPS),0.2196,0.0,2097152,16913280,2921.4,3.82258,E1 LR pilot: 50/50 at 3.0e-4.
+2026-10-05,E1-pilot,e1-pilot-0.001,local,mps,Apple Silicon (MPS),0.2098,0.0,2097152,16913280,3063.2,4.00266,E1 LR pilot: 50/50 at 1.0e-3.
+2026-10-05,E1-pilot,e1-pilot-0.003,local,mps,Apple Silicon (MPS),0.2018,0.0,2097152,16913280,3177.7,4.4813,E1 LR pilot: 50/50 at 3.0e-3.
+2026-10-06,E1-main,e1-m0-p1s1337,local,mps,Apple Silicon (MPS),0.1379,0.0,2097152,16913280,4725.1,3.87331,"E1 0/100: the control, general only."
+2026-10-06,E1-main,e1-m25-p1s1337,local,mps,Apple Silicon (MPS),0.164,0.0,2097152,16913280,3919.3,3.92062,E1 25/75: strong replay.
+2026-10-06,E1-main,e1-m50-p1s1337,local,mps,Apple Silicon (MPS),0.1683,0.0,2097152,16913280,3809.8,3.99366,E1 50/50: the middle.
+2026-10-06,E1-main,e1-m100-p1s1337,local,mps,Apple Silicon (MPS),0.1457,0.0,2097152,16913280,4420.7,5.84689,E1 100/0: personal only.
+2026-10-06,E1-main,e1-m0-p1s1338,local,mps,Apple Silicon (MPS),0.1334,0.0,2097152,16913280,4833.3,3.8817,"E1 0/100: the control, general only."
+2026-10-06,E1-main,e1-m25-p1s1338,local,mps,Apple Silicon (MPS),0.1348,0.0,2097152,16913280,4796.8,3.92658,E1 25/75: strong replay.
+2026-10-06,E1-main,e1-m50-p1s1338,local,mps,Apple Silicon (MPS),0.1373,0.0,2097152,16913280,4707.7,4.01248,E1 50/50: the middle.
+2026-10-06,E1-main,e1-m100-p1s1338,local,mps,Apple Silicon (MPS),0.1361,0.0,2097152,16913280,4719.0,5.82935,E1 100/0: personal only.
+2026-10-06,E1-main,e1-m0-p1s1339,local,mps,Apple Silicon (MPS),0.1372,0.0,2097152,16913280,4697.1,3.87434,"E1 0/100: the control, general only."
+2026-10-06,E1-main,e1-m25-p1s1339,local,mps,Apple Silicon (MPS),0.1381,0.0,2097152,16913280,4685.3,3.921,E1 25/75: strong replay.
+2026-10-06,E1-main,e1-m50-p1s1339,local,mps,Apple Silicon (MPS),0.1381,0.0,2097152,16913280,4670.3,4.00607,E1 50/50: the middle.
+2026-10-06,E1-main,e1-m100-p1s1339,local,mps,Apple Silicon (MPS),0.1358,0.0,2097152,16913280,4731.8,5.90176,E1 100/0: personal only.
+2026-10-06,E1-main,e1-m0-p1s1340,local,mps,Apple Silicon (MPS),0.1395,0.0,2097152,16913280,4621.9,3.87871,"E1 0/100: the control, general only."
+2026-10-06,E1-main,e1-m25-p1s1340,local,mps,Apple Silicon (MPS),0.1451,0.0,2097152,16913280,4458.8,3.93256,E1 25/75: strong replay.
+2026-10-06,E1-main,e1-m50-p1s1340,local,mps,Apple Silicon (MPS),0.1356,0.0,2097152,16913280,4771.2,4.01821,E1 50/50: the middle.
+2026-10-06,E1-main,e1-m100-p1s1340,local,mps,Apple Silicon (MPS),0.1362,0.0,2097152,16913280,4727.9,5.82274,E1 100/0: personal only.
+2026-10-13,pretrain,p4-s1338,kaggle-free,cuda,Tesla T4,1.1656,0.0,301465600,16913280,72644.1,3.71012,"P4 pretrain (E1): probe, AdamW, RoPE, 0.35% the owner's chat from step 0."
+2026-10-13,pretrain,p4-s1337,kaggle-free,cuda,Tesla T4,1.2131,0.0,301465600,16913280,69794.1,3.71099,"P4 pretrain (E1): probe, AdamW, RoPE, 0.35% the owner's chat from step 0."
+2026-10-13,pretrain,p4-s1339,kaggle-free,cuda,Tesla T4,1.1696,0.0,301465600,16913280,72376.6,3.71654,"P4 pretrain (E1): probe, AdamW, RoPE, 0.35% the owner's chat from step 0."
+2026-10-13,pretrain,p4-s1340,kaggle-free,cuda,Tesla T4,1.2004,0.0,301465600,16913280,70519.5,3.71595,"P4 pretrain (E1): probe, AdamW, RoPE, 0.35% the owner's chat from step 0."
+2026-10-14,m10-lr,m10-lr-0.0008-s1337,kaggle-free,cuda,Tesla T4,1.1589,0.0,112984064,49262400,27191.7,4.64711,"M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+2026-10-14,m10-lr,m10-lr-0.0016-s1337,kaggle-free,cuda,Tesla T4,1.1919,0.0,112984064,49262400,26435.6,4.89007,"M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+2026-10-14,m10-lr,m10-lr-0.0032-s1337,kaggle-free,cuda,Tesla T4,1.1426,0.0,112984064,49262400,27588.4,4.76592,"M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+2026-10-14,m10-lr,m10-lr-0.0064-s1337,kaggle-free,cuda,Tesla T4,1.1572,0.0,112984064,49262400,27242.9,5.10515,"M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+2026-10-14,m10-lr,m10-lr-0.0004-s1337,kaggle-free,cuda,Tesla T4,1.2454,0.0,112984064,49262400,25291.5,4.78107,"M10 LR sweep point: the flagship's model and mixture, 1/8 budget."
+2026-10-16,flagship,flagship-s1337,kaggle-free,cuda,Tesla T4,8.6619,0.0,904396800,49262400,29083.6,3.3824,"Final MiniMe model: the owner's chat from step 0 (0.116%), AdamW at the M10 sweep's pick."
+2026-10-17,M10-adaptation,m10-adapt-a,local,mps,Apple Silicon (MPS),0.2443,0.0,1048576,49262400,1422.0,3.36417,M10 candidate A: 10/90 at L = 2e-5.
+2026-10-17,M10-adaptation,m10-adapt-b,local,mps,Apple Silicon (MPS),0.2382,0.0,1048576,49262400,1465.5,3.3645,M10 candidate B: 25/75 at L = 2e-5.
+2026-10-17,M10-adaptation,m10-adapt-c,local,mps,Apple Silicon (MPS),0.2797,0.0,1048576,49262400,1245.8,3.37523,M10 candidate C: 25/75 at 2L = 4e-5.
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1337,local,mps,Apple Silicon (MPS),0.1158,0.0,2097152,16913280,5585.2,3.78954,"E1 follow-up at 3e-4: the control, general only. Superseded: the MPS batch race (HANDOFF §3 M10g)."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1337,local,mps,Apple Silicon (MPS),0.1265,0.0,2097152,16913280,5091.2,3.86132,E1 follow-up at 3e-4: the 50/50 arm. Superseded: the MPS batch race (HANDOFF §3 M10g).
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1338,local,mps,Apple Silicon (MPS),0.1427,0.0,2097152,16913280,4532.4,3.79236,"E1 follow-up at 3e-4: the control, general only. Superseded: the MPS batch race (HANDOFF §3 M10g)."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1338,local,mps,Apple Silicon (MPS),0.1502,0.0,2097152,16913280,4291.0,3.86901,E1 follow-up at 3e-4: the 50/50 arm. Superseded: the MPS batch race (HANDOFF §3 M10g).
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1339,local,mps,Apple Silicon (MPS),0.1595,0.0,2097152,16913280,4044.0,3.79745,"E1 follow-up at 3e-4: the control, general only. Superseded: the MPS batch race (HANDOFF §3 M10g)."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1339,local,mps,Apple Silicon (MPS),0.1626,0.0,2097152,16913280,3975.9,3.85583,E1 follow-up at 3e-4: the 50/50 arm. Superseded: the MPS batch race (HANDOFF §3 M10g).
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1340,local,mps,Apple Silicon (MPS),0.1531,0.0,2097152,16913280,4206.8,3.80869,"E1 follow-up at 3e-4: the control, general only. Superseded: the MPS batch race (HANDOFF §3 M10g)."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1340,local,mps,Apple Silicon (MPS),0.147,0.0,2097152,16913280,4397.4,3.86187,E1 follow-up at 3e-4: the 50/50 arm. Superseded: the MPS batch race (HANDOFF §3 M10g).
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1337,local,mps,Apple Silicon (MPS),0.1326,0.0,2097152,16913280,4875.9,3.75471,"E1 follow-up at 3e-4: the control, general only."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1337,local,mps,Apple Silicon (MPS),0.1333,0.0,2097152,16913280,4830.2,3.81802,E1 follow-up at 3e-4: the 50/50 arm.
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1338,local,mps,Apple Silicon (MPS),0.1336,0.0,2097152,16913280,4826.9,3.76247,"E1 follow-up at 3e-4: the control, general only."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1338,local,mps,Apple Silicon (MPS),0.1386,0.0,2097152,16913280,4653.9,3.83295,E1 follow-up at 3e-4: the 50/50 arm.
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1339,local,mps,Apple Silicon (MPS),0.1431,0.0,2097152,16913280,4505.3,3.759,"E1 follow-up at 3e-4: the control, general only."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1339,local,mps,Apple Silicon (MPS),0.1396,0.0,2097152,16913280,4619.4,3.8305,E1 follow-up at 3e-4: the 50/50 arm.
+2026-10-19,E1-followup,e1-lr0.0003-m0-p1s1340,local,mps,Apple Silicon (MPS),0.1403,0.0,2097152,16913280,4603.2,3.76075,"E1 follow-up at 3e-4: the control, general only."
+2026-10-19,E1-followup,e1-lr0.0003-m50-p1s1340,local,mps,Apple Silicon (MPS),0.1391,0.0,2097152,16913280,4638.9,3.8355,E1 follow-up at 3e-4: the 50/50 arm.
+2026-10-19,M10-rerun,m10-rerun-a,local,mps,Apple Silicon (MPS),0.2748,0.0,1048576,49262400,1271.6,3.36263,M10 candidate A: 10/90 at L = 2e-5.
+2026-10-19,M10-rerun,m10-rerun-b,local,mps,Apple Silicon (MPS),0.2799,0.0,1048576,49262400,1245.7,3.36285,M10 candidate B: 25/75 at L = 2e-5.
+2026-10-19,M10-rerun,m10-rerun-c,local,mps,Apple Silicon (MPS),0.257,0.0,1048576,49262400,1357.1,3.36875,M10 candidate C: 25/75 at 2L = 4e-5.

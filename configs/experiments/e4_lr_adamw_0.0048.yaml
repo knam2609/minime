@@ -1,0 +1,6 @@
+extends: e4_lr_base.yaml
+name: e4-lr-adamw-0.0048
+
+training:
+  optimizer: adamw
+  learning_rate: 4.8e-3

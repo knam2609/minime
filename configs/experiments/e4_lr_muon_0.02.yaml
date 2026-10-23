@@ -1,0 +1,5 @@
+extends: e4_lr_muon_base.yaml
+name: e4-lr-muon-0.02
+
+training:
+  muon_lr: 0.02

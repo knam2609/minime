@@ -1,0 +1,39 @@
+# The evaluation every run is measured with.  Changing any value here changes
+# eval_config_fingerprint in eval.json, and results with different
+# fingerprints are not compared.  Documented in minime.evaluation.harness.
+version: 1
+seed: 1234
+batch_size: 32
+families: [perplexity, voice, degeneration, code, blimp]
+
+sampling:
+  temperature: 1.0
+  top_k: 50
+
+perplexity:
+  max_tokens: 1000000          # per general slice; the personal split is scored in full
+  general_weights: {web: 0.7, dialogue: 0.2, code: 0.1}
+
+voice:
+  prompts: 512                 # held-out personal documents continued by the model
+  prompt_tokens: 128           # preceding conversation given as context
+  max_new_tokens: 64           # also the length cap on every text the family compares
+  profile_words: 30000         # per reference author (me-train, dialogue, web)
+  chunk_words: 300             # Burrows' Delta chunk size
+  mfw: 100                     # most frequent words for Delta
+  folds: 5                     # impersonation-classifier cross-validation
+  classifier_docs: 2000        # per class, attribution classifier
+
+degeneration:
+  prompts: 128
+  prompt_tokens: 64
+  max_new_tokens: 128
+
+code:
+  prompts: 200                 # a cap: the held-out code shard (153 files) yields 123
+  prompt_tokens: 256
+  max_new_tokens: 128
+  per_file: 2
+
+blimp:
+  pairs_per_paradigm: 100      # x 67 paradigms

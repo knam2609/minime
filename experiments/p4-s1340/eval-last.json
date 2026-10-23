@@ -1,0 +1,554 @@
+{
+  "eval_version": 1,
+  "eval_config_fingerprint": "7c9503161d6f",
+  "eval_config": {
+    "version": 1,
+    "seed": 1234,
+    "batch_size": 32,
+    "families": [
+      "perplexity",
+      "voice",
+      "degeneration",
+      "code",
+      "blimp"
+    ],
+    "sampling": {
+      "temperature": 1.0,
+      "top_k": 50
+    },
+    "perplexity": {
+      "max_tokens": 1000000,
+      "general_weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      }
+    },
+    "voice": {
+      "prompts": 512,
+      "prompt_tokens": 128,
+      "max_new_tokens": 64,
+      "profile_words": 30000,
+      "chunk_words": 300,
+      "mfw": 100,
+      "folds": 5,
+      "classifier_docs": 2000
+    },
+    "degeneration": {
+      "prompts": 128,
+      "prompt_tokens": 64,
+      "max_new_tokens": 128
+    },
+    "code": {
+      "prompts": 200,
+      "prompt_tokens": 256,
+      "max_new_tokens": 128,
+      "per_file": 2
+    },
+    "blimp": {
+      "pairs_per_paradigm": 100,
+      "path": ""
+    }
+  },
+  "split": "val",
+  "checkpoint": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/p4-s1340/last.pt",
+    "step": 2300,
+    "config_name": "p4",
+    "config_fingerprint": "1603b05c4820",
+    "params": 16913280,
+    "tokens_seen": 301465600
+  },
+  "tokenizer": {
+    "id": "minime-16k@92bb9c71bf6e2da5",
+    "dev": false
+  },
+  "git_revision": "unknown",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "created": "2026-10-13T14:23:11+00:00",
+  "shards": {
+    "general/code.val": {
+      "tokens": 502476,
+      "docs": 153
+    },
+    "general/dialogue.val": {
+      "tokens": 910868,
+      "docs": 35776
+    },
+    "general/web.val": {
+      "tokens": 3124620,
+      "docs": 2788
+    },
+    "personal/split": {
+      "tokens": 15838,
+      "docs": 1390
+    },
+    "personal/train/chat.train": {
+      "tokens": 293534,
+      "docs": 26464
+    },
+    "personal/train/comment.train": {
+      "tokens": 800,
+      "docs": 62
+    }
+  },
+  "seconds": {
+    "perplexity": 328.6,
+    "voice": 284.5,
+    "degeneration": 150.5,
+    "code": 411.3,
+    "blimp": 21.8
+  },
+  "perplexity": {
+    "personal": {
+      "loss": 3.82031338641068,
+      "ppl": 45.61850229965868,
+      "bits_per_byte": 1.6915963691003157,
+      "tokens": 15837,
+      "windows": 31,
+      "coverage": 1.0,
+      "digest": "f7fd9bd7b2d0ca1c"
+    },
+    "general": {
+      "web": {
+        "loss": 3.71821075918976,
+        "ppl": 41.190628182843646,
+        "bits_per_byte": 1.2643132763201972,
+        "tokens": 999936,
+        "windows": 1953,
+        "coverage": 0.3200185366599896,
+        "digest": "00308468850379c5"
+      },
+      "dialogue": {
+        "loss": 4.424034134340535,
+        "ppl": 83.43218401128298,
+        "bits_per_byte": 1.814511840349994,
+        "tokens": 910867,
+        "windows": 1780,
+        "coverage": 1.0,
+        "digest": "c3064340778a710f"
+      },
+      "code": {
+        "loss": 2.3657907128026814,
+        "ppl": 10.652458523621275,
+        "bits_per_byte": 1.0109296359722686,
+        "tokens": 502475,
+        "windows": 982,
+        "coverage": 1.0,
+        "digest": "0dd42b6a66ccc612"
+      }
+    },
+    "general_weighted": {
+      "loss": 3.7241334295812076,
+      "ppl": 41.43531056809906,
+      "weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      }
+    }
+  },
+  "voice": {
+    "prompts": {
+      "digest": "d1fd5d3139751f3e",
+      "prompts": 512,
+      "kind": "document",
+      "eligible_documents": 1381,
+      "prompt_tokens": 128,
+      "max_target_tokens": 64,
+      "n": 512
+    },
+    "generation": {
+      "eot_rate": 0.9921875,
+      "mean_tokens": 10.708984375,
+      "entropy": 3.8955317453257625,
+      "positions": 5991
+    },
+    "stylometry": {
+      "profiles": {
+        "generated": {
+          "docs": 512,
+          "words": 3985,
+          "chars": 18596,
+          "words_per_doc": 7.783203125,
+          "chars_per_doc": 36.3203125,
+          "words_per_line": 4.417960088691796,
+          "empty_doc_share": 0.0,
+          "mattr": 0.810020325203252,
+          "uppercase_share": 0.04134234101923924,
+          "emoji_per_100_chars": 0.3602925360292536,
+          "docs_with_emoji": 0.087890625,
+          "punctuation_per_100_chars": 4.328887932888794
+        },
+        "real": {
+          "docs": 512,
+          "words": 3576,
+          "chars": 18088,
+          "words_per_doc": 6.984375,
+          "chars_per_doc": 35.328125,
+          "words_per_line": 4.0,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8581627445421037,
+          "uppercase_share": 0.0352514256091239,
+          "emoji_per_100_chars": 0.3261831048208757,
+          "docs_with_emoji": 0.095703125,
+          "punctuation_per_100_chars": 4.583149049093321
+        },
+        "me_train": {
+          "docs": 4389,
+          "words": 30013,
+          "chars": 148955,
+          "words_per_doc": 6.838231943495101,
+          "chars_per_doc": 33.93825472772841,
+          "words_per_line": 3.99746936600959,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8909197703911361,
+          "uppercase_share": 0.03152959702240355,
+          "emoji_per_100_chars": 0.46591252391661914,
+          "docs_with_emoji": 0.10799726589200273,
+          "punctuation_per_100_chars": 4.073042193951193
+        },
+        "dialogue": {
+          "docs": 1831,
+          "words": 30034,
+          "chars": 155733,
+          "words_per_doc": 16.403058438012014,
+          "chars_per_doc": 85.05352266521027,
+          "words_per_line": 7.002564700396363,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8654320493580124,
+          "uppercase_share": 0.04802124141750625,
+          "emoji_per_100_chars": 0.0,
+          "docs_with_emoji": 0.0,
+          "punctuation_per_100_chars": 1.9629750919843578
+        },
+        "web": {
+          "docs": 691,
+          "words": 30016,
+          "chars": 186936,
+          "words_per_doc": 43.43849493487699,
+          "chars_per_doc": 270.5296671490593,
+          "words_per_line": 19.118471337579617,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8150098441619115,
+          "uppercase_share": 0.04786228398951872,
+          "emoji_per_100_chars": 0.0,
+          "docs_with_emoji": 0.0,
+          "punctuation_per_100_chars": 2.2735053708220994
+        }
+      },
+      "distance_to_real": {
+        "generated": {
+          "function_word_jsd": 0.041712532642491154,
+          "punctuation_jsd": 0.0072582153864667156,
+          "words_per_doc_ks": 0.052734375,
+          "words_per_line_gap": 0.417960088691796,
+          "mattr_gap": 0.04814241933885177,
+          "uppercase_share_gap": 0.00609091541011534,
+          "emoji_per_100_chars_gap": 0.034109431208377894,
+          "punctuation_per_100_chars_gap": 0.2542611162045274
+        },
+        "me_train": {
+          "function_word_jsd": 0.028493695395139972,
+          "punctuation_jsd": 0.0025945131412615464,
+          "words_per_doc_ks": 0.02540664516404645,
+          "words_per_line_gap": 0.0025306339904100916,
+          "mattr_gap": 0.032757025849032395,
+          "uppercase_share_gap": 0.0037218285867203493,
+          "emoji_per_100_chars_gap": 0.13972941909574343,
+          "punctuation_per_100_chars_gap": 0.5101068551421282
+        },
+        "dialogue": {
+          "function_word_jsd": 0.07686281525145847,
+          "punctuation_jsd": 0.6823919143269046,
+          "words_per_doc_ks": 0.532440435554342,
+          "words_per_line_gap": 3.0025647003963627,
+          "mattr_gap": 0.007269304815908706,
+          "uppercase_share_gap": 0.012769815808382351,
+          "emoji_per_100_chars_gap": 0.3261831048208757,
+          "punctuation_per_100_chars_gap": 2.620173957108963
+        }
+      },
+      "delta": {
+        "chunk_words": 300,
+        "mfw": 100,
+        "reference_chunks": {
+          "dialogue": 100,
+          "me": 100,
+          "web": 100
+        },
+        "questioned": {
+          "generated": {
+            "chunks": 13,
+            "delta": {
+              "dialogue": 1.0800054233115812,
+              "me": 0.9097534236297555,
+              "web": 1.2370086776801419
+            },
+            "nearest_is_target": 1.0
+          },
+          "real": {
+            "chunks": 11,
+            "delta": {
+              "dialogue": 0.9771268335014061,
+              "me": 0.8412067217253647,
+              "web": 1.028346346171826
+            },
+            "nearest_is_target": 1.0
+          }
+        }
+      }
+    },
+    "authorship": {
+      "discriminator": {
+        "auc": 0.7092122097952493,
+        "auc_std": 0.03432604144828449,
+        "folds": 5,
+        "real": 512,
+        "generated": 512
+      },
+      "attribution": {
+        "trained_on": {
+          "target": 2000,
+          "control": 2000
+        },
+        "real": {
+          "texts": 512,
+          "attributed_to_target": 0.916015625,
+          "mean_probability": 0.8000109138607528
+        },
+        "generated": {
+          "texts": 512,
+          "attributed_to_target": 0.92578125,
+          "mean_probability": 0.8265424271403441
+        }
+      }
+    },
+    "diversity": {
+      "generated": {
+        "texts": 512,
+        "mean_words": 10.2890625,
+        "rep_2": 0.11298062777808318,
+        "rep_3": 0.08616110514190889,
+        "rep_4": 0.04616230833388383,
+        "distinct_1": 0.16154138192862566,
+        "distinct_2": 0.5918839360807401,
+        "distinct_3": 0.7862827715355806,
+        "self_bleu": 0.3705854817393727
+      },
+      "real": {
+        "texts": 512,
+        "mean_words": 9.513671875,
+        "rep_2": 0.10141390590626824,
+        "rep_3": 0.07712834730885869,
+        "rep_4": 0.04410485985605492,
+        "distinct_1": 0.2479983576267707,
+        "distinct_2": 0.6799724707501721,
+        "distinct_3": 0.7904639175257732,
+        "self_bleu": 0.31748619922026716
+      }
+    }
+  },
+  "degeneration": {
+    "prompts": {
+      "digest": "a19ccc26c226c20c",
+      "prompts": 128,
+      "kind": "prefix",
+      "eligible_documents": 2603,
+      "prompt_tokens": 64,
+      "target_tokens": 128,
+      "n": 128
+    },
+    "generation": {
+      "eot_rate": 0.09375,
+      "mean_tokens": 121.09375,
+      "entropy": 3.6254131682903337,
+      "positions": 15512
+    },
+    "generated": {
+      "texts": 128,
+      "mean_words": 104.4140625,
+      "rep_2": 0.1042027371270059,
+      "rep_3": 0.04597142575166082,
+      "rep_4": 0.02726507136634162,
+      "distinct_1": 0.21765806210250654,
+      "distinct_2": 0.6787036337538718,
+      "distinct_3": 0.9114484021051026,
+      "self_bleu": 0.10823586389778957
+    },
+    "real": {
+      "texts": 128,
+      "mean_words": 104.96875,
+      "rep_2": 0.04774436073536876,
+      "rep_3": 0.011853902731788043,
+      "rep_4": 0.0037455195304933924,
+      "distinct_1": 0.30909496874069664,
+      "distinct_2": 0.8119927862939585,
+      "distinct_3": 0.9717754172989378,
+      "self_bleu": 0.05446206423504398
+    }
+  },
+  "code": {
+    "prompts": 123,
+    "valid": 0.3902439024390244,
+    "terminated": 0.5447154471544715,
+    "reference_valid": 1.0,
+    "generation": {
+      "eot_rate": 0.04878048780487805,
+      "mean_tokens": 123.97560975609755,
+      "entropy": 2.4141424826910445,
+      "positions": 15255
+    }
+  },
+  "blimp": {
+    "accuracy": 0.7067164179104477,
+    "pairs": 6700,
+    "paradigms": 67,
+    "by_field": {
+      "morphology": 0.8611111111111112,
+      "semantics": 0.58,
+      "syntax": 0.6526923076923077,
+      "syntax_semantics": 0.6900000000000002
+    },
+    "by_paradigm": {
+      "adjunct_island": 0.72,
+      "anaphor_gender_agreement": 0.53,
+      "anaphor_number_agreement": 0.88,
+      "animate_subject_passive": 0.73,
+      "animate_subject_trans": 0.71,
+      "causative": 0.63,
+      "complex_NP_island": 0.52,
+      "coordinate_structure_constraint_complex_left_branch": 0.51,
+      "coordinate_structure_constraint_object_extraction": 0.68,
+      "determiner_noun_agreement_1": 0.97,
+      "determiner_noun_agreement_2": 0.98,
+      "determiner_noun_agreement_irregular_1": 0.88,
+      "determiner_noun_agreement_irregular_2": 0.96,
+      "determiner_noun_agreement_with_adj_2": 0.91,
+      "determiner_noun_agreement_with_adj_irregular_1": 0.84,
+      "determiner_noun_agreement_with_adj_irregular_2": 0.87,
+      "determiner_noun_agreement_with_adjective_1": 0.91,
+      "distractor_agreement_relational_noun": 0.85,
+      "distractor_agreement_relative_clause": 0.62,
+      "drop_argument": 0.7,
+      "ellipsis_n_bar_1": 0.62,
+      "ellipsis_n_bar_2": 0.86,
+      "existential_there_object_raising": 0.67,
+      "existential_there_quantifiers_1": 0.97,
+      "existential_there_quantifiers_2": 0.16,
+      "existential_there_subject_raising": 0.69,
+      "expletive_it_object_raising": 0.72,
+      "inchoative": 0.51,
+      "intransitive": 0.62,
+      "irregular_past_participle_adjectives": 0.97,
+      "irregular_past_participle_verbs": 0.83,
+      "irregular_plural_subject_verb_agreement_1": 0.89,
+      "irregular_plural_subject_verb_agreement_2": 0.9,
+      "left_branch_island_echo_question": 0.28,
+      "left_branch_island_simple_question": 0.72,
+      "matrix_question_npi_licensor_present": 0.44,
+      "npi_present_1": 0.33,
+      "npi_present_2": 0.36,
+      "only_npi_licensor_present": 0.58,
+      "only_npi_scope": 0.8,
+      "passive_1": 0.82,
+      "passive_2": 0.83,
+      "principle_A_c_command": 0.74,
+      "principle_A_case_1": 1.0,
+      "principle_A_case_2": 0.87,
+      "principle_A_domain_1": 0.96,
+      "principle_A_domain_2": 0.61,
+      "principle_A_domain_3": 0.46,
+      "principle_A_reconstruction": 0.45,
+      "regular_plural_subject_verb_agreement_1": 0.85,
+      "regular_plural_subject_verb_agreement_2": 0.86,
+      "sentential_negation_npi_licensor_present": 0.97,
+      "sentential_negation_npi_scope": 0.46,
+      "sentential_subject_island": 0.23,
+      "superlative_quantifiers_1": 0.58,
+      "superlative_quantifiers_2": 0.83,
+      "tough_vs_raising_1": 0.59,
+      "tough_vs_raising_2": 0.64,
+      "transitive": 0.77,
+      "wh_island": 0.64,
+      "wh_questions_object_gap": 0.54,
+      "wh_questions_subject_gap": 0.94,
+      "wh_questions_subject_gap_long_distance": 0.97,
+      "wh_vs_that_no_gap": 0.91,
+      "wh_vs_that_no_gap_long_distance": 1.0,
+      "wh_vs_that_with_gap": 0.38,
+      "wh_vs_that_with_gap_long_distance": 0.13
+    }
+  },
+  "eval_sets": {
+    "ce/personal/val": {
+      "digest": "f7fd9bd7b2d0ca1c",
+      "tokens": 15837
+    },
+    "ce/general/web.val": {
+      "digest": "00308468850379c5",
+      "tokens": 999936
+    },
+    "ce/general/dialogue.val": {
+      "digest": "c3064340778a710f",
+      "tokens": 910867
+    },
+    "ce/general/code.val": {
+      "digest": "0dd42b6a66ccc612",
+      "tokens": 502475
+    },
+    "voice/prompts": {
+      "digest": "d1fd5d3139751f3e",
+      "prompts": 512,
+      "kind": "document",
+      "eligible_documents": 1381,
+      "prompt_tokens": 128,
+      "max_target_tokens": 64,
+      "n": 512
+    },
+    "voice/reference/me_train": {
+      "digest": "70d628edfe2b8c38",
+      "texts": 4389
+    },
+    "voice/reference/dialogue": {
+      "digest": "c844f59c9938351a",
+      "texts": 1831
+    },
+    "voice/reference/web": {
+      "digest": "3219c3e7e4ab8fb5",
+      "texts": 691
+    },
+    "voice/reference/classifier_me": {
+      "digest": "6a82e9bd8bcac182",
+      "texts": 2000
+    },
+    "voice/reference/classifier_control": {
+      "digest": "11133a2b437ec661",
+      "texts": 2000
+    },
+    "degeneration/prompts": {
+      "digest": "a19ccc26c226c20c",
+      "prompts": 128,
+      "kind": "prefix",
+      "eligible_documents": 2603,
+      "prompt_tokens": 64,
+      "target_tokens": 128,
+      "n": 128
+    },
+    "code/prompts": {
+      "digest": "b44f400a91bbe8d5",
+      "prompts": 123,
+      "prompt_tokens": 256
+    },
+    "blimp": {
+      "sha256": "690c1685acc338d8",
+      "pairs": 6700,
+      "pairs_per_paradigm": 100
+    }
+  }
+}

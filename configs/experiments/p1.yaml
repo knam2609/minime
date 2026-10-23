@@ -1,0 +1,6 @@
+# P1: the baseline pretrain -- the probe as it stands (AdamW at the E4 sweep's
+# 2.4e-3, RoPE, the general mixture).  E3's and E4's reference arm, and the
+# config the seed-noise floor repeats (p1_s1338.yaml .. p1_s1340.yaml).
+extends: ../probe.yaml
+name: p1
+notes: "P1 baseline pretrain: probe, AdamW, RoPE."

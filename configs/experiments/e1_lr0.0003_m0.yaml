@@ -1,0 +1,14 @@
+# E1's 3e-4 follow-up (the owner, 2026-10-19; README "E1 follow-up at 3e-4"):
+# the control at the pilot's 3e-4 instead of the main runs' 1e-3, and nothing
+# else changed -- a second recipe, reported beside 1e-3's, never instead of it.
+# scripts/run_e1.py gives it its base's main-run data.seed.
+extends: e1_m0.yaml
+name: e1_lr0.0003_m0
+role: followup
+notes: "E1 follow-up at 3e-4: the control, general only."
+
+training:
+  learning_rate: 3.0e-4
+
+data:
+  mixture: { web: 7, dialogue: 2, code: 1, chat: 0, comment: 0 }

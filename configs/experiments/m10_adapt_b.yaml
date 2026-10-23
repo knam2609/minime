@@ -1,0 +1,12 @@
+# Candidate B: whether more personal exposure helps (A -> B: the mixture).
+# 25% chat, the general 75% at 7 : 2 : 1, peak LR L.  ~262,144 chat tokens,
+# +0.89 passes (~4.5 with the flagship's ~3.6).
+extends: m10_adapt_base.yaml
+name: m10_adapt_b
+notes: "M10 candidate B: 25/75 at L = 2e-5."
+
+training:
+  learning_rate: 2.0e-5
+
+data:
+  mixture: { web: 0.525, dialogue: 0.15, code: 0.075, chat: 0.25 }

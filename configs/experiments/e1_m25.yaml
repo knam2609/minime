@@ -1,0 +1,9 @@
+# E1 25/75: strong replay.  ~524k personal tokens, ~1.8 passes over the
+# owner's chat; the general part at the corpus's 7:2:1.
+extends: e1_base.yaml
+name: e1_m25
+role: main
+notes: "E1 25/75: strong replay."
+
+data:
+  mixture: { web: 0.525, dialogue: 0.15, code: 0.075, chat: 0.25, comment: 0 }

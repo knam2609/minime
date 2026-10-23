@@ -1,0 +1,14 @@
+# E1 LR pilot (README "E1 adaptation protocol"): the 50/50 arm from p1-s1337
+# at one candidate peak LR, on a data.seed no main run uses.  Picked by the
+# lowest final personal validation loss (scripts/pick_e1_lr.py).
+# The extension above the grid: run only if 1e-3 wins the grid.
+extends: e1_m50.yaml
+name: e1_pilot_0.003
+role: pilot
+notes: "E1 LR pilot: 50/50 at 3.0e-3."
+
+training:
+  learning_rate: 3.0e-3
+
+data:
+  seed: 2000

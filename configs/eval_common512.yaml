@@ -1,0 +1,13 @@
+# The common-context comparison of the M10 report (HANDOFF §4a): CE only,
+# every model scored on 512-token windows -- the probes' own context, half
+# the flagship's.  Rows: P1, P4, E1 25/75 and E1 50/50 (four runs each), the
+# unadapted flagship and the accepted adaptation, if any, all with this file,
+# so they share one fingerprint.  scripts/evaluate.py names the output
+# eval-<checkpoint>-ctx512.json, beside the native evaluation.  16 windows of
+# 512 a forward pass: the tokens of eval_flagship.yaml's 8 of 1024.
+extends: eval.yaml
+families: [perplexity]
+
+perplexity:
+  context_length: 512
+  batch_size: 16

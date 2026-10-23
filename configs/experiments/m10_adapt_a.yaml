@@ -1,0 +1,12 @@
+# Candidate A: gentle adaptation with strong replay.  10% chat, the general
+# 90% at 7 : 2 : 1, peak LR L.  ~104,858 chat tokens, +0.36 passes over the
+# 293,534-token chat (~3.9 with the flagship's ~3.6).
+extends: m10_adapt_base.yaml
+name: m10_adapt_a
+notes: "M10 candidate A: 10/90 at L = 2e-5."
+
+training:
+  learning_rate: 2.0e-5
+
+data:
+  mixture: { web: 0.63, dialogue: 0.18, code: 0.09, chat: 0.10 }

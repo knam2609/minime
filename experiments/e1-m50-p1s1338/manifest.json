@@ -1,0 +1,124 @@
+{
+  "run": "e1-m50-p1s1338",
+  "started": "2026-10-06T02:58:43+00:00",
+  "git_revision": "5fcdee1-dirty",
+  "python": "3.11.2",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "config": {
+    "name": "e1_m50",
+    "notes": "E1 50/50: the middle.",
+    "role": "main",
+    "out_dir": "artifacts",
+    "model": {
+      "vocab_size": 16384,
+      "d_model": 384,
+      "n_heads": 6,
+      "n_layers": 6,
+      "context_length": 512,
+      "dropout": 0.0,
+      "norm": "rmsnorm",
+      "pos": "rope",
+      "ffn": "swiglu",
+      "bias": false,
+      "tie_embeddings": true,
+      "rope_theta": 10000.0,
+      "ffn_mult": 4.0,
+      "init_std": 0.02
+    },
+    "training": {
+      "batch_size": 4,
+      "gradient_accumulation": 4,
+      "learning_rate": 0.001,
+      "min_lr_ratio": 0.1,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "warmup_steps": 16,
+      "max_steps": 256,
+      "optimizer": "adamw",
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "muon_weight_decay": 0.0,
+      "validation_interval": 32,
+      "validation_batches": 16,
+      "log_interval": 8,
+      "checkpoint_interval": 64,
+      "keep_last_n_checkpoints": 4,
+      "seed": 1337,
+      "precision": "auto",
+      "device": "auto",
+      "compile": false,
+      "num_workers": 0
+    },
+    "data": {
+      "dataset": "general",
+      "mixture": {
+        "web": 0.35,
+        "dialogue": 0.1,
+        "code": 0.05,
+        "chat": 0.5,
+        "comment": 0
+      },
+      "tokenizer_path": "tokenizer/minime-16k.json",
+      "seed": 2002
+    }
+  },
+  "data": {
+    "data_dir": [
+      "/Volumes/BIWIN/minime/shards/general",
+      "/Volumes/BIWIN/minime/shards/personal"
+    ],
+    "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+    "tokenizer_dev": false,
+    "shards": {
+      "web": 630000348,
+      "dialogue": 180000001,
+      "code": 90005340,
+      "chat": 293534,
+      "comment": 800
+    },
+    "val_shard": {
+      "general": 4537964,
+      "personal": 15838
+    }
+  },
+  "init_from": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/p1-s1338/last.pt",
+    "sha256": "b31002d7de8eab104a7e81a0b7fd0f6167969f24bfb971e0652f945432d6e751",
+    "step": 2300,
+    "config_name": "p1",
+    "config_fingerprint": "6c39e8f16407"
+  },
+  "finished": "2026-10-06T03:06:58+00:00",
+  "summary": {
+    "steps": 256,
+    "tokens_seen": 2097152,
+    "final_val_loss": 4.012478351593018,
+    "best_val_loss": 4.012478351593018,
+    "runtime_seconds": 494.2,
+    "runtime": "8m14s",
+    "tokens_per_second": 4707.7,
+    "mfu": 0.13331199939042412,
+    "params": 16913280,
+    "realised_mixture": {
+      "chat": 0.496826171875,
+      "code": 0.048583984375,
+      "comment": 0.0,
+      "dialogue": 0.104248046875,
+      "web": 0.350341796875
+    },
+    "precision": "fp32",
+    "final_val_losses": {
+      "general": 4.012478351593018,
+      "personal": 3.5040602684020996
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "config": "p1",
+  "metric": "final_val_loss",
+  "n": 4,
+  "mean": 3.7090475,
+  "std": 0.004598857648010811,
+  "range": 0.011150000000000215,
+  "rule": "95% prediction interval: mean \u00b1 t(0.975, n-1) \u00b7 std \u00b7 sqrt(1 + 1/n)",
+  "t": 3.1824,
+  "half_width": 0.016362879758460947,
+  "token_budget": 301465600,
+  "precision": "fp16",
+  "runs": [
+    {
+      "run": "p1-s1337",
+      "training_seed": 1337,
+      "data_seed": 1234,
+      "final_val_loss": 3.70402
+    },
+    {
+      "run": "p1-s1338",
+      "training_seed": 1338,
+      "data_seed": 1235,
+      "final_val_loss": 3.71517
+    },
+    {
+      "run": "p1-s1339",
+      "training_seed": 1339,
+      "data_seed": 1236,
+      "final_val_loss": 3.70871
+    },
+    {
+      "run": "p1-s1340",
+      "training_seed": 1340,
+      "data_seed": 1237,
+      "final_val_loss": 3.70829
+    }
+  ],
+  "comparisons": {
+    "p2-s1337": {
+      "final_val_loss": {
+        "value": 3.81891,
+        "difference": 0.10986249999999975,
+        "half_width": 0.016362879758460947,
+        "verdict": "higher than the baseline",
+        "role": "primary"
+      }
+    },
+    "p3-s1337": {
+      "final_val_loss": {
+        "value": 3.6665,
+        "difference": -0.04254749999999996,
+        "half_width": 0.016362879758460947,
+        "verdict": "lower than the baseline",
+        "role": "primary"
+      }
+    }
+  }
+}

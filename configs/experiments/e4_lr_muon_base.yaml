@@ -1,0 +1,10 @@
+# The Muon sweep.  Run it after the AdamW sweep: the Muon arm keeps AdamW for
+# the embedding and the norms, at the AdamW sweep's winning LR, so the two E4
+# arms differ only in how the hidden matrices are updated.
+extends: e4_lr_base.yaml
+
+training:
+  optimizer: muon
+  # The AdamW winner (reports/lr_sweep/adamw.json).  `pick_lr.py muon`
+  # refuses runs made at any other value.
+  learning_rate: 2.4e-3

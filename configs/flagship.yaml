@@ -1,0 +1,33 @@
+# ~49M params, ~904M tokens.  The deliverable model (M10), decided with the
+# owner 2026-10-14 (HANDOFF §4a).  The owner's chat is mixed in from step 0
+# at P4's expected exposure: 20 parts in 17,250 of 3,450 x 262,144 =
+# 904,396,800 tokens = 1,048,576 chat tokens, ~3.6 passes over the chat
+# (0.116%).  The general 17,230 parts keep the corpus's 7 : 2 : 1 exactly.
+# No `comment` key: the upload holds chat.train alone.  Runs on one T4
+# (fp16), ~9.3 h at the sweep's measured ~27k tok/s: if a session's deadline
+# comes first it pauses (train.py --stop-by), and the next session resumes it
+# (--resume).
+extends: base.yaml
+name: flagship
+notes: "Final MiniMe model: the owner's chat from step 0 (0.116%), AdamW at the M10 sweep's pick."
+
+model:
+  vocab_size: 16384
+  d_model: 576
+  n_heads: 9                   # head_dim 64
+  n_layers: 10
+  context_length: 1024
+
+training:
+  batch_size: 16
+  gradient_accumulation: 16    # 262,144 tokens/step
+  # The M10 sweep's pick (reports/m10/sweep.json): the lowest final general
+  # val loss at 431 steps, 0.119 ahead of 3.2e-3; the extension at 4e-4 lost.
+  learning_rate: 8.0e-4
+  warmup_steps: 300
+  max_steps: 3450              # ~904M tokens
+  validation_interval: 200
+  checkpoint_interval: 500
+
+data:
+  mixture: { web: 12061, dialogue: 3446, code: 1723, chat: 20 }

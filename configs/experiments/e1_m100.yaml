@@ -1,0 +1,9 @@
+# E1 100/0: personal only.  ~2.10M personal tokens, ~7.1 passes over the
+# owner's chat.
+extends: e1_base.yaml
+name: e1_m100
+role: main
+notes: "E1 100/0: personal only."
+
+data:
+  mixture: { web: 0, dialogue: 0, code: 0, chat: 1, comment: 0 }

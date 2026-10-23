@@ -1,0 +1,108 @@
+{
+  "checkpoint": {
+    "step": 2300,
+    "config_name": "p1",
+    "config_fingerprint": "35513aea2298"
+  },
+  "tokenizer": "minime-16k@92bb9c71bf6e2da5",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "sets": {
+    "train": {
+      "digest": "2723f962c92aff15",
+      "prompts": 700,
+      "kind": "message",
+      "eligible_documents": 13593,
+      "prompt_tokens": 64,
+      "min_tokens": 8,
+      "max_tokens": 63,
+      "n": 700
+    },
+    "val": {
+      "digest": "314927bcc374f25d",
+      "prompts": 700,
+      "kind": "message",
+      "eligible_documents": 726,
+      "prompt_tokens": 64,
+      "min_tokens": 8,
+      "max_tokens": 63,
+      "n": 700
+    },
+    "voice": {
+      "digest": "d1fd5d3139751f3e",
+      "prompts": 512,
+      "kind": "document",
+      "eligible_documents": 1381,
+      "prompt_tokens": 128,
+      "max_target_tokens": 64,
+      "n": 512
+    }
+  },
+  "extraction": {
+    "train": {
+      "prompts": {
+        "digest": "2723f962c92aff15",
+        "prompts": 700,
+        "kind": "message",
+        "eligible_documents": 13593,
+        "prompt_tokens": 64,
+        "min_tokens": 8,
+        "max_tokens": 63,
+        "n": 700
+      },
+      "n": 700,
+      "extracted": 0,
+      "rate": 0.0,
+      "mean_matched_fraction": 0.00489715441479728,
+      "extracted_documents": []
+    },
+    "val": {
+      "prompts": {
+        "digest": "314927bcc374f25d",
+        "prompts": 700,
+        "kind": "message",
+        "eligible_documents": 726,
+        "prompt_tokens": 64,
+        "min_tokens": 8,
+        "max_tokens": 63,
+        "n": 700
+      },
+      "n": 700,
+      "extracted": 0,
+      "rate": 0.0,
+      "mean_matched_fraction": 0.0034778405329262975,
+      "extracted_documents": []
+    }
+  },
+  "overlap": {
+    "generated": {
+      "n": 512,
+      "mean": 0.779296875,
+      "p50": 0.0,
+      "p95": 4.0,
+      "max": 6,
+      "share_at_least": {
+        "8": 0.0,
+        "16": 0.0,
+        "32": 0.0
+      }
+    },
+    "real": {
+      "n": 512,
+      "mean": 2.744140625,
+      "p50": 4.0,
+      "p95": 7.449999999999989,
+      "max": 17,
+      "share_at_least": {
+        "8": 0.05078125,
+        "16": 0.001953125,
+        "32": 0.0
+      }
+    }
+  },
+  "seconds": 317.9
+}

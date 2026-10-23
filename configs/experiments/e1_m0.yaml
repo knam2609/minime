@@ -1,0 +1,9 @@
+# E1 control (0/100): general-only continuation.  The same recipe, length and
+# optimiser restart as every arm, and none of the owner's messages.
+extends: e1_base.yaml
+name: e1_m0
+role: main
+notes: "E1 0/100: the control, general only."
+
+data:
+  mixture: { web: 7, dialogue: 2, code: 1, chat: 0, comment: 0 }

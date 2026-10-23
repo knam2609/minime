@@ -1,0 +1,570 @@
+{
+  "eval_version": 1,
+  "eval_config_fingerprint": "1209d6384ca0",
+  "eval_config": {
+    "version": 1,
+    "seed": 1234,
+    "batch_size": 32,
+    "families": [
+      "perplexity",
+      "voice",
+      "degeneration",
+      "code",
+      "blimp"
+    ],
+    "sampling": {
+      "temperature": 1.0,
+      "top_k": 50
+    },
+    "perplexity": {
+      "max_tokens": 1000000,
+      "general_weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      },
+      "context_length": null,
+      "batch_size": 8
+    },
+    "voice": {
+      "prompts": 512,
+      "prompt_tokens": 128,
+      "max_new_tokens": 64,
+      "profile_words": 30000,
+      "chunk_words": 300,
+      "mfw": 100,
+      "folds": 5,
+      "classifier_docs": 2000
+    },
+    "degeneration": {
+      "prompts": 128,
+      "prompt_tokens": 64,
+      "max_new_tokens": 128
+    },
+    "code": {
+      "prompts": 200,
+      "prompt_tokens": 256,
+      "max_new_tokens": 128,
+      "per_file": 2
+    },
+    "blimp": {
+      "pairs_per_paradigm": 100,
+      "path": ""
+    }
+  },
+  "split": "test",
+  "checkpoint": {
+    "path": "/Volumes/BIWIN/minime/runs/m10-adapt-c/last.pt",
+    "step": 128,
+    "config_name": "m10_adapt_c",
+    "config_fingerprint": "70f541dfc67f",
+    "params": 49262400,
+    "tokens_seen": 1048576
+  },
+  "tokenizer": {
+    "id": "minime-16k@92bb9c71bf6e2da5",
+    "dev": false
+  },
+  "git_revision": "e721338",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "created": "2026-10-18T14:55:56+00:00",
+  "shards": {
+    "general/code.test": {
+      "tokens": 401555,
+      "docs": 155
+    },
+    "general/code.val": {
+      "tokens": 502476,
+      "docs": 153
+    },
+    "general/dialogue.test": {
+      "tokens": 908110,
+      "docs": 35689
+    },
+    "general/dialogue.val": {
+      "tokens": 910868,
+      "docs": 35776
+    },
+    "general/web.test": {
+      "tokens": 3119466,
+      "docs": 2769
+    },
+    "general/web.val": {
+      "tokens": 3124620,
+      "docs": 2788
+    },
+    "personal/split": {
+      "tokens": 24948,
+      "docs": 2240
+    },
+    "personal/train/chat.train": {
+      "tokens": 293534,
+      "docs": 26464
+    },
+    "personal/train/comment.train": {
+      "tokens": 800,
+      "docs": 62
+    }
+  },
+  "seconds": {
+    "perplexity": 649.0,
+    "voice": 445.6,
+    "degeneration": 379.5,
+    "code": 995.9,
+    "blimp": 44.7
+  },
+  "perplexity": {
+    "context_length": 1024,
+    "native_context_length": 1024,
+    "personal": {
+      "loss": 3.623481223553308,
+      "ppl": 37.46777475079536,
+      "bits_per_byte": 1.7302040245255808,
+      "tokens": 24947,
+      "windows": 25,
+      "coverage": 1.0,
+      "digest": "7097d9399482abcc"
+    },
+    "general": {
+      "web": {
+        "loss": 3.3889471624718337,
+        "ppl": 29.634735278603625,
+        "bits_per_byte": 1.161360499868834,
+        "tokens": 999424,
+        "windows": 976,
+        "coverage": 0.32038314262221246,
+        "digest": "8631ec89a8aed54e"
+      },
+      "dialogue": {
+        "loss": 4.176566944331572,
+        "ppl": 65.14183335745354,
+        "bits_per_byte": 1.7164427377013225,
+        "tokens": 908109,
+        "windows": 887,
+        "coverage": 1.0,
+        "digest": "c8eb5edf088a906d"
+      },
+      "code": {
+        "loss": 1.9306767489613885,
+        "ppl": 6.894174288498205,
+        "bits_per_byte": 0.8659174445261308,
+        "tokens": 401554,
+        "windows": 393,
+        "coverage": 1.0,
+        "digest": "0016bd527c6f2de1"
+      }
+    },
+    "general_weighted": {
+      "loss": 3.4006440774927373,
+      "ppl": 29.983405466253178,
+      "weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      }
+    }
+  },
+  "voice": {
+    "prompts": {
+      "digest": "463d436f0e551013",
+      "prompts": 512,
+      "kind": "document",
+      "eligible_documents": 2225,
+      "prompt_tokens": 128,
+      "max_target_tokens": 64,
+      "n": 512
+    },
+    "generation": {
+      "eot_rate": 1.0,
+      "mean_tokens": 7.59765625,
+      "entropy": 3.6609560504991743,
+      "positions": 4402
+    },
+    "stylometry": {
+      "profiles": {
+        "generated": {
+          "docs": 512,
+          "words": 2557,
+          "chars": 12179,
+          "words_per_doc": 4.994140625,
+          "chars_per_doc": 23.787109375,
+          "words_per_line": 3.220403022670025,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8262998405103669,
+          "uppercase_share": 0.035494557501183154,
+          "emoji_per_100_chars": 0.3859101732490352,
+          "docs_with_emoji": 0.064453125,
+          "punctuation_per_100_chars": 8.646030051728385
+        },
+        "real": {
+          "docs": 512,
+          "words": 3199,
+          "chars": 16344,
+          "words_per_doc": 6.248046875,
+          "chars_per_doc": 31.921875,
+          "words_per_line": 3.538716814159292,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8566539682539682,
+          "uppercase_share": 0.028188380886902717,
+          "emoji_per_100_chars": 0.2936857562408223,
+          "docs_with_emoji": 0.07421875,
+          "punctuation_per_100_chars": 6.834312285854136
+        },
+        "me_train": {
+          "docs": 4389,
+          "words": 30013,
+          "chars": 148955,
+          "words_per_doc": 6.838231943495101,
+          "chars_per_doc": 33.93825472772841,
+          "words_per_line": 3.99746936600959,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8909197703911361,
+          "uppercase_share": 0.03152959702240355,
+          "emoji_per_100_chars": 0.46591252391661914,
+          "docs_with_emoji": 0.10799726589200273,
+          "punctuation_per_100_chars": 4.073042193951193
+        },
+        "dialogue": {
+          "docs": 1831,
+          "words": 30034,
+          "chars": 155733,
+          "words_per_doc": 16.403058438012014,
+          "chars_per_doc": 85.05352266521027,
+          "words_per_line": 7.002564700396363,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8654320493580124,
+          "uppercase_share": 0.04802124141750625,
+          "emoji_per_100_chars": 0.0,
+          "docs_with_emoji": 0.0,
+          "punctuation_per_100_chars": 1.9629750919843578
+        },
+        "web": {
+          "docs": 691,
+          "words": 30016,
+          "chars": 186936,
+          "words_per_doc": 43.43849493487699,
+          "chars_per_doc": 270.5296671490593,
+          "words_per_line": 19.118471337579617,
+          "empty_doc_share": 0.0,
+          "mattr": 0.8150098441619115,
+          "uppercase_share": 0.04786228398951872,
+          "emoji_per_100_chars": 0.0,
+          "docs_with_emoji": 0.0,
+          "punctuation_per_100_chars": 2.2735053708220994
+        }
+      },
+      "distance_to_real": {
+        "generated": {
+          "function_word_jsd": 0.06637281225990012,
+          "punctuation_jsd": 0.01890438550156983,
+          "words_per_doc_ks": 0.123046875,
+          "words_per_line_gap": 0.31831379148926686,
+          "mattr_gap": 0.030354127743601356,
+          "uppercase_share_gap": 0.007306176614280437,
+          "emoji_per_100_chars_gap": 0.09222441700821288,
+          "punctuation_per_100_chars_gap": 1.8117177658742492
+        },
+        "me_train": {
+          "function_word_jsd": 0.033306791237070504,
+          "punctuation_jsd": 0.01605898269292102,
+          "words_per_doc_ks": 0.07383693609022557,
+          "words_per_line_gap": 0.45875255185029795,
+          "mattr_gap": 0.0342658021371679,
+          "uppercase_share_gap": 0.003341216135500834,
+          "emoji_per_100_chars_gap": 0.1722267676757968,
+          "punctuation_per_100_chars_gap": 2.7612700919029427
+        },
+        "dialogue": {
+          "function_word_jsd": 0.0844632763337672,
+          "punctuation_jsd": 0.7589233531541488,
+          "words_per_doc_ks": 0.540252935554342,
+          "words_per_line_gap": 3.4638478862370707,
+          "mattr_gap": 0.00877808110404421,
+          "uppercase_share_gap": 0.019832860530603534,
+          "emoji_per_100_chars_gap": 0.2936857562408223,
+          "punctuation_per_100_chars_gap": 4.871337193869778
+        }
+      },
+      "delta": {
+        "chunk_words": 300,
+        "mfw": 100,
+        "reference_chunks": {
+          "dialogue": 100,
+          "me": 100,
+          "web": 100
+        },
+        "questioned": {
+          "generated": {
+            "chunks": 8,
+            "delta": {
+              "dialogue": 1.1212588977492393,
+              "me": 0.9053223460384575,
+              "web": 1.2738987015597432
+            },
+            "nearest_is_target": 1.0
+          },
+          "real": {
+            "chunks": 10,
+            "delta": {
+              "dialogue": 1.0419030452380196,
+              "me": 0.8774631674158349,
+              "web": 1.0745974063441568
+            },
+            "nearest_is_target": 0.9
+          }
+        }
+      }
+    },
+    "authorship": {
+      "discriminator": {
+        "auc": 0.6892406146928487,
+        "auc_std": 0.04268473893599285,
+        "folds": 5,
+        "real": 512,
+        "generated": 512
+      },
+      "attribution": {
+        "trained_on": {
+          "target": 2000,
+          "control": 2000
+        },
+        "real": {
+          "texts": 512,
+          "attributed_to_target": 0.931640625,
+          "mean_probability": 0.8312959651693619
+        },
+        "generated": {
+          "texts": 512,
+          "attributed_to_target": 0.951171875,
+          "mean_probability": 0.870937103775105
+        }
+      }
+    },
+    "diversity": {
+      "generated": {
+        "texts": 512,
+        "mean_words": 7.83984375,
+        "rep_2": 0.18609787051417576,
+        "rep_3": 0.13589822486318076,
+        "rep_4": 0.06685431358200233,
+        "distinct_1": 0.18809167912306926,
+        "distinct_2": 0.5608223872073101,
+        "distinct_3": 0.684750248097916,
+        "self_bleu": 0.47731785301270074
+      },
+      "real": {
+        "texts": 512,
+        "mean_words": 9.447265625,
+        "rep_2": 0.1487107176695732,
+        "rep_3": 0.10268000989668237,
+        "rep_4": 0.05269001556024455,
+        "distinct_1": 0.2503617945007236,
+        "distinct_2": 0.6460115606936416,
+        "distinct_3": 0.7466701488639331,
+        "self_bleu": 0.3906899745523648
+      }
+    }
+  },
+  "degeneration": {
+    "prompts": {
+      "digest": "851d16fc80b621a4",
+      "prompts": 128,
+      "kind": "prefix",
+      "eligible_documents": 2582,
+      "prompt_tokens": 64,
+      "target_tokens": 128,
+      "n": 128
+    },
+    "generation": {
+      "eot_rate": 0.3046875,
+      "mean_tokens": 107.2890625,
+      "entropy": 3.455049640219589,
+      "positions": 13772
+    },
+    "generated": {
+      "texts": 128,
+      "mean_words": 93.7109375,
+      "rep_2": 0.07433639807983769,
+      "rep_3": 0.0263535887439788,
+      "rep_4": 0.012331246128941849,
+      "distinct_1": 0.22984576907044602,
+      "distinct_2": 0.7139125305468947,
+      "distinct_3": 0.9362862010221465,
+      "self_bleu": 0.09566583186163408
+    },
+    "real": {
+      "texts": 128,
+      "mean_words": 106.6328125,
+      "rep_2": 0.049218191034693,
+      "rep_3": 0.012407419654771034,
+      "rep_4": 0.004153188983799723,
+      "distinct_1": 0.29848340537768336,
+      "distinct_2": 0.8105909326233267,
+      "distinct_3": 0.9720749645337117,
+      "self_bleu": 0.05541399499850021
+    }
+  },
+  "code": {
+    "prompts": 115,
+    "valid": 0.43478260869565216,
+    "terminated": 0.5565217391304348,
+    "reference_valid": 1.0,
+    "generation": {
+      "eot_rate": 0.2,
+      "mean_tokens": 114.93913043478261,
+      "entropy": 1.94622825445054,
+      "positions": 13241
+    }
+  },
+  "blimp": {
+    "accuracy": 0.7582089552238804,
+    "pairs": 6700,
+    "paradigms": 67,
+    "by_field": {
+      "morphology": 0.8783333333333334,
+      "semantics": 0.741111111111111,
+      "syntax": 0.6857692307692308,
+      "syntax_semantics": 0.7492857142857142
+    },
+    "by_paradigm": {
+      "adjunct_island": 0.78,
+      "anaphor_gender_agreement": 0.78,
+      "anaphor_number_agreement": 0.95,
+      "animate_subject_passive": 0.75,
+      "animate_subject_trans": 0.8,
+      "causative": 0.65,
+      "complex_NP_island": 0.49,
+      "coordinate_structure_constraint_complex_left_branch": 0.45,
+      "coordinate_structure_constraint_object_extraction": 0.65,
+      "determiner_noun_agreement_1": 0.99,
+      "determiner_noun_agreement_2": 0.97,
+      "determiner_noun_agreement_irregular_1": 0.91,
+      "determiner_noun_agreement_irregular_2": 0.97,
+      "determiner_noun_agreement_with_adj_2": 0.9,
+      "determiner_noun_agreement_with_adj_irregular_1": 0.86,
+      "determiner_noun_agreement_with_adj_irregular_2": 0.86,
+      "determiner_noun_agreement_with_adjective_1": 0.92,
+      "distractor_agreement_relational_noun": 0.82,
+      "distractor_agreement_relative_clause": 0.59,
+      "drop_argument": 0.71,
+      "ellipsis_n_bar_1": 0.61,
+      "ellipsis_n_bar_2": 0.84,
+      "existential_there_object_raising": 0.83,
+      "existential_there_quantifiers_1": 1.0,
+      "existential_there_quantifiers_2": 0.46,
+      "existential_there_subject_raising": 0.8,
+      "expletive_it_object_raising": 0.72,
+      "inchoative": 0.56,
+      "intransitive": 0.66,
+      "irregular_past_participle_adjectives": 0.91,
+      "irregular_past_participle_verbs": 0.86,
+      "irregular_plural_subject_verb_agreement_1": 0.88,
+      "irregular_plural_subject_verb_agreement_2": 0.88,
+      "left_branch_island_echo_question": 0.41,
+      "left_branch_island_simple_question": 0.73,
+      "matrix_question_npi_licensor_present": 0.5,
+      "npi_present_1": 0.49,
+      "npi_present_2": 0.58,
+      "only_npi_licensor_present": 0.86,
+      "only_npi_scope": 0.6,
+      "passive_1": 0.81,
+      "passive_2": 0.91,
+      "principle_A_c_command": 0.7,
+      "principle_A_case_1": 1.0,
+      "principle_A_case_2": 0.93,
+      "principle_A_domain_1": 0.98,
+      "principle_A_domain_2": 0.72,
+      "principle_A_domain_3": 0.53,
+      "principle_A_reconstruction": 0.66,
+      "regular_plural_subject_verb_agreement_1": 0.87,
+      "regular_plural_subject_verb_agreement_2": 0.89,
+      "sentential_negation_npi_licensor_present": 1.0,
+      "sentential_negation_npi_scope": 0.59,
+      "sentential_subject_island": 0.3,
+      "superlative_quantifiers_1": 0.89,
+      "superlative_quantifiers_2": 0.89,
+      "tough_vs_raising_1": 0.66,
+      "tough_vs_raising_2": 0.77,
+      "transitive": 0.75,
+      "wh_island": 0.78,
+      "wh_questions_object_gap": 0.76,
+      "wh_questions_subject_gap": 0.95,
+      "wh_questions_subject_gap_long_distance": 0.96,
+      "wh_vs_that_no_gap": 0.97,
+      "wh_vs_that_no_gap_long_distance": 1.0,
+      "wh_vs_that_with_gap": 0.42,
+      "wh_vs_that_with_gap_long_distance": 0.13
+    }
+  },
+  "eval_sets": {
+    "ce/personal/test": {
+      "digest": "7097d9399482abcc",
+      "tokens": 24947
+    },
+    "ce/general/web.test": {
+      "digest": "8631ec89a8aed54e",
+      "tokens": 999424
+    },
+    "ce/general/dialogue.test": {
+      "digest": "c8eb5edf088a906d",
+      "tokens": 908109
+    },
+    "ce/general/code.test": {
+      "digest": "0016bd527c6f2de1",
+      "tokens": 401554
+    },
+    "voice/prompts": {
+      "digest": "463d436f0e551013",
+      "prompts": 512,
+      "kind": "document",
+      "eligible_documents": 2225,
+      "prompt_tokens": 128,
+      "max_target_tokens": 64,
+      "n": 512
+    },
+    "voice/reference/me_train": {
+      "digest": "70d628edfe2b8c38",
+      "texts": 4389
+    },
+    "voice/reference/dialogue": {
+      "digest": "c844f59c9938351a",
+      "texts": 1831
+    },
+    "voice/reference/web": {
+      "digest": "3219c3e7e4ab8fb5",
+      "texts": 691
+    },
+    "voice/reference/classifier_me": {
+      "digest": "6a82e9bd8bcac182",
+      "texts": 2000
+    },
+    "voice/reference/classifier_control": {
+      "digest": "11133a2b437ec661",
+      "texts": 2000
+    },
+    "degeneration/prompts": {
+      "digest": "851d16fc80b621a4",
+      "prompts": 128,
+      "kind": "prefix",
+      "eligible_documents": 2582,
+      "prompt_tokens": 64,
+      "target_tokens": 128,
+      "n": 128
+    },
+    "code/prompts": {
+      "digest": "778e5008806b0e48",
+      "prompts": 115,
+      "prompt_tokens": 256
+    },
+    "blimp": {
+      "sha256": "690c1685acc338d8",
+      "pairs": 6700,
+      "pairs_per_paradigm": 100
+    }
+  }
+}

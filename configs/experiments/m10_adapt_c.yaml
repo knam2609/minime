@@ -1,0 +1,11 @@
+# Candidate C: whether a stronger update helps (B -> C: the LR).  B's 25/75
+# mixture at peak LR 2L.
+extends: m10_adapt_base.yaml
+name: m10_adapt_c
+notes: "M10 candidate C: 25/75 at 2L = 4e-5."
+
+training:
+  learning_rate: 4.0e-5
+
+data:
+  mixture: { web: 0.525, dialogue: 0.15, code: 0.075, chat: 0.25 }

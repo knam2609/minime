@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://minime-showcase-ap-southeast-2.s3.ap-southeast-2.amazonaws.com; base-uri 'none'; form-action 'none'">
+<title>MiniMe</title>
+<meta name="description" content="A 49M-parameter language model trained from scratch to write in one person's voice, and a controlled study of what that costs in general language ability.">
+<!-- The public samples.json (scripts/showcase_samples.py; the CSP's one connect-src) and the repository. -->
+<meta name="minime:samples" content="https://minime-showcase-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/samples.json">
+<meta name="minime:repository" content="https://github.com/knam2609/minime">
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">MiniMe · a language model trained from scratch</p>
+  <h1>How much of a person’s voice can a tiny model buy?</h1>
+  <p class="lede">MiniMe is a <strong><span data-v="compute.params" data-f="M1"></span>-parameter language model trained from scratch</strong> to write in one person’s voice, on <span data-v="compute.kaggle_gpu_hours" data-f="f1"></span> free GPU-hours. Beside it, a controlled study at 17M parameters measures what that voice costs in general language ability.</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <span class="label">Personal CE, final model (test)</span>
+      <span class="value" data-v="final.rows.0.final_test" data-f="f3"></span>
+      <span class="delta"><span data-v="final.rows.0.difference_test" data-f="s3"></span> against the flagship</span>
+    </div>
+    <div class="tile">
+      <span class="label">General-weighted CE (test)</span>
+      <span class="value" data-v="final.rows.1.final_test" data-f="f3"></span>
+      <span class="delta"><span data-v="final.rows.1.difference_test" data-f="s3"></span> against the flagship</span>
+    </div>
+    <div class="tile">
+      <span class="label">Training tokens</span>
+      <span class="value" data-v="compute.tokens" data-f="M0"></span>
+      <span class="delta">one <span data-v="compute.runtime"></span> session on a T4</span>
+    </div>
+    <div class="tile">
+      <span class="label">GPU time, the whole project</span>
+      <span class="value"><span data-v="compute.kaggle_gpu_hours" data-f="f1"></span> h</span>
+      <span class="delta">free-tier Kaggle, plus <span data-v="compute.laptop_hours" data-f="f1"></span> h on a laptop</span>
+    </div>
+  </div>
+  <p class="note">CE is cross-entropy in nats per token: how surprised a model is by real text it never trained on. Lower is better.</p>
+</header>
+
+<main>
+
+<section id="frontier" aria-labelledby="frontier-title">
+  <h2 id="frontier-title">Voice against general ability</h2>
+  <p>Every model is scored on the same held-out text. Up and down is the owner’s messages (personal CE); left and right is web, dialogue and code (general-weighted CE). Lower is better on both, so the bottom-left is best. The line joins the strategies no other beats on both.</p>
+
+  <div class="card">
+    <div class="controls">
+      <div class="segmented" role="group" aria-label="Split">
+        <button type="button" data-split="test" aria-pressed="true">Test split, read once</button>
+        <button type="button" data-split="val" aria-pressed="false">Validation</button>
+      </div>
+      <p class="note">Group means large, single seeds small. 512-token windows.</p>
+    </div>
+    <div class="chart" id="chart">
+      <div class="tooltip" id="tooltip" role="status" hidden></div>
+    </div>
+    <ul class="legend" aria-label="Legend">
+      <li><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="6" class="swatch-final"/></svg>Flagship + C, the final model (49M)</li>
+      <li><svg width="14" height="14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11" rx="2" class="swatch-flagship"/></svg>Flagship (49M)</li>
+      <li><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" class="swatch-probe"/></svg>Probes (17M), mean of 4 seeds</li>
+      <li><svg width="18" height="14" aria-hidden="true"><line x1="1" y1="7" x2="17" y2="7" class="swatch-frontier"/></svg>Frontier</li>
+    </ul>
+    <details class="table-view">
+      <summary>Table view</summary>
+      <div class="table-wrap">
+        <table id="frontier-table">
+          <thead><tr><th>Model</th><th>Size</th><th>Runs</th><th>Personal CE</th><th>General CE</th><th>Frontier</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+  <p class="note">The probes are the controlled study: one change at a time, four seeds each. The flagship and its adaptation are single runs of another size, budget and context, so where they sit describes and does not attribute. P1 never saw the owner’s messages; its personal CE is off the scale.</p>
+</section>
+
+<section id="final" aria-labelledby="final-title">
+  <h2 id="final-title">How the final model was made</h2>
+  <ol class="steps">
+    <li>
+      <h3>Pretrain the flagship</h3>
+      <p><span data-v="compute.params" data-f="M1"></span> parameters, <span data-v="compute.tokens" data-f="M0"></span> tokens of web, dialogue and code at <span data-v="recipe.general_parts" data-f="ratio"></span>, with the owner’s chat mixed in from the first step: <span data-v="recipe.chat_share_pretrain" data-f="f3"></span>% of the tokens. That is P4’s way in, which at 17M bought the voice at no detectable general cost (below).</p>
+    </li>
+    <li>
+      <h3>Adapt it, by a rule fixed in advance</h3>
+      <p><span data-v="recipe.candidates" data-f="word"></span> candidate recipes were frozen before the first attempt, each continuing the flagship for <span data-v="recipe.adapt_tokens" data-f="int"></span> tokens. A candidate passes only if personal CE falls by at least <span data-v="recipe.personal_gain" data-f="f2"></span> and general CE rises by at most <span data-v="recipe.general_cap" data-f="f2"></span> on validation. Only <span data-v="recipe.candidate"></span> passed: <span data-v="recipe.chat_share_adapt"></span>% chat at learning rate <span data-v="recipe.lr" data-f="sci"></span>, personal <span data-v="recipe.change_val.personal" data-f="s4"></span>, general <span data-v="recipe.change_val.general" data-f="s4"></span>.</p>
+    </li>
+    <li>
+      <h3>Read the samples, then choose</h3>
+      <p>The owner read the flagship’s and <span data-v="recipe.candidate"></span>’s voice samples and kept <span data-v="recipe.candidate"></span> (<span data-v="recipe.chosen" data-f="date"></span>).</p>
+    </li>
+    <li>
+      <h3>Open the test split once</h3>
+      <p>Only then was the sealed test split read. <span data-v="recipe.candidate"></span>’s gain holds: personal <span data-v="final.rows.0.difference_test" data-f="s3"></span>, general <span data-v="final.rows.1.difference_test" data-f="s3"></span>. Nothing was chosen from it.</p>
+    </li>
+  </ol>
+
+  <div class="card">
+    <div class="table-wrap">
+      <table id="final-table">
+        <thead><tr><th>Native 1024-token context</th><th>Flagship, test</th><th>Final, test</th><th>Change, test</th><th>Change, val</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <p class="note">The exploratory measures are reported beside their real-message references in the repository and never judged. Impersonation AUC is how well a classifier tells the model’s messages from the owner’s real ones; attribution and Delta ask whether a stylometric test names the owner as the author.</p>
+</section>
+
+<section id="study" aria-labelledby="study-title">
+  <h2 id="study-title">What the controlled study found</h2>
+  <p>Each verdict compares runs of the 17M probe that differ in one thing. A difference counts only when its interval excludes zero.</p>
+  <div class="findings">
+    <div class="card">
+      <span class="kicker">E3 · position encoding</span>
+      <h3>Rotary positions beat learned ones</h3>
+      <p>Learned position embeddings end <span class="figure" data-v="study.e3.difference" data-f="s3"></span> higher in validation loss than RoPE, against a seed-noise floor of ±<span data-v="study.floor.half_width" data-f="f3"></span> (<span data-v="study.floor.n"></span> seeds).</p>
+    </div>
+    <div class="card">
+      <span class="kicker">E4 · optimiser</span>
+      <h3>Muon beats AdamW, narrowly</h3>
+      <p>Muon ends <span class="figure" data-v="study.e4.difference" data-f="s3"></span> lower in validation loss, each optimiser at its own swept learning rate (floor ±<span data-v="study.floor.half_width" data-f="f3"></span>).</p>
+    </div>
+    <div class="card">
+      <span class="kicker">E1 · adapting a pretrained probe</span>
+      <h3>Adaptation buys the voice, at a general cost that grows with the chat share</h3>
+      <table class="mini">
+        <thead><tr><th>Chat share</th><th>Personal CE</th><th>General CE</th></tr></thead>
+        <tbody>
+          <tr><td>25%</td><td data-v="study.e1.25.personal" data-f="pm2"></td><td data-v="study.e1.25.general" data-f="pm3"></td></tr>
+          <tr><td>50%</td><td data-v="study.e1.50.personal" data-f="pm2"></td><td data-v="study.e1.50.general" data-f="pm3"></td></tr>
+          <tr><td>100%</td><td data-v="study.e1.100.personal" data-f="pm2"></td><td data-v="study.e1.100.general" data-f="pm2"></td></tr>
+        </tbody>
+      </table>
+      <p>Against a control adapted on general text alone, over four pretrained bases. All six verdicts resolved.</p>
+    </div>
+    <div class="card">
+      <span class="kicker">P4 · chat from step 0</span>
+      <h3>Mixing the chat in from the start costs no detectable general ability</h3>
+      <p>Against P1: personal <span class="figure" data-v="study.p4.p1.personal" data-f="pm2"></span>, general <span class="figure" data-v="study.p4.p1.general" data-f="pm3"></span>, unresolved: no cost this design can detect.</p>
+      <p>Against E1’s 50% adaptation: personal <span class="figure" data-v="study.p4.e1-50.personal" data-f="pm3"></span>, general <span class="figure" data-v="study.p4.e1-50.general" data-f="pm3"></span>. A trade, not a winner.</p>
+    </div>
+  </div>
+  <p class="note">Differences in nats per token. E3 and E4 are judged against a 95% prediction interval from P1’s seeds; E1 and P4 use 95% intervals, Bonferroni-corrected over each experiment’s verdicts.</p>
+</section>
+
+<section id="samples" aria-labelledby="samples-title">
+  <h2 id="samples-title">Samples</h2>
+  <p>What the models wrote, drawn at random rather than picked. At the owner’s request a script chose them without anyone reading them: from the test split, it kept the samples that pass the gate below and a word filter for profanity, slurs and insults (English and Vietnamese), with prose in English and of moderate length, then drew three voice prompts, one general text and one function with a fixed seed. Each prompt appears twice: the final model’s sample, then the unadapted flagship’s. A word filter is not a reading, so a sample can still say something odd. A voice sample is the model’s next message in a held-out conversation, written after the owner’s preceding messages. Those prompts are the owner’s real messages and are not shown.</p>
+  <p>Each sample passed a gate before it was published: no run of more than <span data-v="memorisation.threshold" data-f="floor"></span> tokens shared with the training chat, and nothing the corpus’s scrubber finds (names, handles, phone numbers, emails, links).</p>
+  <div class="samples" id="samples-list" aria-live="polite">
+    <p class="empty">The samples are not published yet.</p>
+  </div>
+  <p class="note" id="redaction-note" hidden>Tokens such as &lt;NAME&gt; are the corpus’s redactions, which the model learned to write.</p>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <h2 id="privacy-title">What stays private</h2>
+  <p>The owner’s messages, the tokenizer trained on them, the list of names redacted from them and every model checkpoint stay off the internet. MiniMe runs only on the owner’s laptop. There is no endpoint, public or private, and no live model behind this page.</p>
+  <h3>Memorisation: checked, not ruled out</h3>
+  <p>A small model can reproduce its training text verbatim, other people’s words included. The memorisation check gave each model 700 of the owner’s training messages and 700 held-out ones, each after the messages before it, and counted exact reproductions. It could detect memorisation only if the run that overfit the chat (E1 100/0, about seven passes) separated from a model that never saw it (P1). It did not, so <strong>by its own rule the check is blind at this scale</strong> and no claim of low memorisation is made from it.</p>
+  <div class="card">
+    <div class="table-wrap">
+      <table id="memo-table">
+        <thead><tr><th>Model</th><th>Training messages written exactly</th><th>Held-out messages written exactly</th><th>Run shared with the training chat, mean</th><th>Its 95th percentile</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <p class="note">A run shared with the training chat is the longest token sequence a voice sample has in common with the owner’s training messages. The owner’s own held-out messages share as much with their past, so overlap alone cannot tell recall from style.</p>
+</section>
+
+<section id="limits" aria-labelledby="limits-title">
+  <h2 id="limits-title">Limits</h2>
+  <ul class="plain">
+    <li>At this size a model learns voice, not facts: words, rhythm, punctuation, register. It knows nothing reliable about the owner’s life and does not hold a conversation.</li>
+    <li>One person’s messages: every finding about the persona is a case study of one.</li>
+    <li>The flagship is a single run. Its distance from the probes mixes size, budget and context, so none of it is attributed to any one of them.</li>
+    <li>The personal corpus is the owner’s English and code-switched Instagram messages; mainly-Vietnamese messages were left out by design.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>The Transformer, training loop and evaluation harness are written from scratch in PyTorch. <span id="repo-line" hidden>Code and the full case study: <a id="repo-link" href="#"></a>.</span></p>
+  <p>Every number on this page is read from the repository’s committed reports by <code>scripts/build_showcase.py</code>.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+{
+  "eval_version": 1,
+  "eval_config_fingerprint": "d5f6c3ab52c9",
+  "eval_config": {
+    "version": 1,
+    "seed": 1234,
+    "batch_size": 32,
+    "families": [
+      "perplexity"
+    ],
+    "sampling": {
+      "temperature": 1.0,
+      "top_k": 50
+    },
+    "perplexity": {
+      "max_tokens": 1000000,
+      "general_weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      },
+      "context_length": 512,
+      "batch_size": 16
+    },
+    "voice": {
+      "prompts": 512,
+      "prompt_tokens": 128,
+      "max_new_tokens": 64,
+      "profile_words": 30000,
+      "chunk_words": 300,
+      "mfw": 100,
+      "folds": 5,
+      "classifier_docs": 2000
+    },
+    "degeneration": {
+      "prompts": 128,
+      "prompt_tokens": 64,
+      "max_new_tokens": 128
+    },
+    "code": {
+      "prompts": 200,
+      "prompt_tokens": 256,
+      "max_new_tokens": 128,
+      "per_file": 2
+    },
+    "blimp": {
+      "pairs_per_paradigm": 100,
+      "path": ""
+    }
+  },
+  "split": "val",
+  "checkpoint": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/p4-s1337/last.pt",
+    "step": 2300,
+    "config_name": "p4",
+    "config_fingerprint": "d27c82bef63f",
+    "params": 16913280,
+    "tokens_seen": 301465600
+  },
+  "tokenizer": {
+    "id": "minime-16k@92bb9c71bf6e2da5",
+    "dev": false
+  },
+  "git_revision": "da04293-dirty",
+  "device": {
+    "device": "mps",
+    "accelerator": "Apple Silicon (MPS)",
+    "precision": "fp32",
+    "torch": "2.11.0"
+  },
+  "created": "2026-10-17T17:11:40+00:00",
+  "shards": {
+    "general/code.val": {
+      "tokens": 502476,
+      "docs": 153
+    },
+    "general/dialogue.val": {
+      "tokens": 910868,
+      "docs": 35776
+    },
+    "general/web.val": {
+      "tokens": 3124620,
+      "docs": 2788
+    },
+    "personal/split": {
+      "tokens": 15838,
+      "docs": 1390
+    },
+    "personal/train/chat.train": {
+      "tokens": 293534,
+      "docs": 26464
+    },
+    "personal/train/comment.train": {
+      "tokens": 800,
+      "docs": 62
+    }
+  },
+  "seconds": {
+    "perplexity": 208.4
+  },
+  "perplexity": {
+    "context_length": 512,
+    "native_context_length": 512,
+    "personal": {
+      "loss": 3.811970065155964,
+      "ppl": 45.23947584823636,
+      "bits_per_byte": 1.687902030308394,
+      "tokens": 15837,
+      "windows": 31,
+      "coverage": 1.0,
+      "digest": "f7fd9bd7b2d0ca1c"
+    },
+    "general": {
+      "web": {
+        "loss": 3.712028635262344,
+        "ppl": 40.93676812046747,
+        "bits_per_byte": 1.262211151975048,
+        "tokens": 999936,
+        "windows": 1953,
+        "coverage": 0.3200185366599896,
+        "digest": "00308468850379c5"
+      },
+      "dialogue": {
+        "loss": 4.42507753345316,
+        "ppl": 83.51928250939065,
+        "bits_per_byte": 1.8149397891375887,
+        "tokens": 910867,
+        "windows": 1780,
+        "coverage": 1.0,
+        "digest": "c3064340778a710f"
+      },
+      "code": {
+        "loss": 2.3689909724694793,
+        "ppl": 10.686603764663522,
+        "bits_per_byte": 1.0122971438090627,
+        "tokens": 502475,
+        "windows": 982,
+        "coverage": 1.0,
+        "digest": "0dd42b6a66ccc612"
+      }
+    },
+    "general_weighted": {
+      "loss": 3.7203346486212214,
+      "ppl": 41.278205492056095,
+      "weights": {
+        "web": 0.7,
+        "dialogue": 0.2,
+        "code": 0.1
+      }
+    }
+  },
+  "eval_sets": {
+    "ce/personal/val": {
+      "digest": "f7fd9bd7b2d0ca1c",
+      "tokens": 15837
+    },
+    "ce/general/web.val": {
+      "digest": "00308468850379c5",
+      "tokens": 999936
+    },
+    "ce/general/dialogue.val": {
+      "digest": "c3064340778a710f",
+      "tokens": 910867
+    },
+    "ce/general/code.val": {
+      "digest": "0dd42b6a66ccc612",
+      "tokens": 502475
+    }
+  }
+}

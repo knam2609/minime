@@ -1,0 +1,16 @@
+# P4: E1's "from the start" arm -- P1 with the owner's chat mixed in from step
+# 0, and nothing else changed (decided with the owner 2026-10-13).  Chat gets
+# 20 parts in 5,750: of P1's 301,465,600 tokens, 1,048,576 are expected from
+# chat -- the E1 50/50 arm's personal tokens, ~3.6 passes over the owner's
+# chat.  The general 5,730 parts keep the corpus's 7 : 2 : 1.  `comment` is
+# left out, not zeroed: nothing above p4 names it, and the upload holds only
+# chat.train.  Runs on Kaggle (T4, fp16, like P1) from the general dataset
+# and the staged personal one (scripts/stage_personal_upload.py); its
+# training-time val_loss is the general val set, as P1's.  Four seed pairs,
+# P1's: p4_s1338.yaml .. p4_s1340.yaml.
+extends: p1.yaml
+name: p4
+notes: "P4 pretrain (E1): probe, AdamW, RoPE, 0.35% the owner's chat from step 0."
+
+data:
+  mixture: { web: 4011, dialogue: 1146, code: 573, chat: 20 }

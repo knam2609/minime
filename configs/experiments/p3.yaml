@@ -1,0 +1,11 @@
+# P3: E4's arm -- P1 with Muon on the hidden matrices at the Muon sweep's pick
+# (reports/lr_sweep/muon.json).  The embedding and norms stay on AdamW at
+# P1's 2.4e-3, so the two arms differ only in how the hidden matrices are
+# updated.  Judged against P1's seed-noise floor.
+extends: p1.yaml
+name: p3
+notes: "P3 pretrain (E4): probe, Muon, RoPE."
+
+training:
+  optimizer: muon
+  muon_lr: 0.02

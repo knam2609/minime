@@ -1,0 +1,56 @@
+{
+  "metric": "final_val_losses.personal",
+  "rule": "lowest final personal validation loss; an exact tie goes to the lower LR; an edge winner earns one point beyond it, then the search stops",
+  "grid": [
+    0.0001,
+    0.0003,
+    0.001
+  ],
+  "extension": 0.003,
+  "init_from": {
+    "path": "/Volumes/BIWIN/minime/checkpoints/p1-s1337/last.pt",
+    "sha256": "0db7700479d1d279f4d2d8039326bb2c725b82e75c4f2fcf672b3808690ccc2a",
+    "step": 2300,
+    "config_name": "p1",
+    "config_fingerprint": "887b94ede8a4"
+  },
+  "data_seed": 2000,
+  "personal_share": 0.5,
+  "token_budget": 2097152,
+  "points": [
+    {
+      "run": "e1-pilot-0.0001",
+      "lr": 0.0001,
+      "status": "finished",
+      "personal": 3.8621416091918945,
+      "general": 3.772309958934784
+    },
+    {
+      "run": "e1-pilot-0.0003",
+      "lr": 0.0003,
+      "status": "finished",
+      "personal": 3.5810461342334747,
+      "general": 3.8225805908441544
+    },
+    {
+      "run": "e1-pilot-0.001",
+      "lr": 0.001,
+      "status": "finished",
+      "personal": 3.5087865740060806,
+      "general": 4.002658173441887
+    },
+    {
+      "run": "e1-pilot-0.003",
+      "lr": 0.003,
+      "status": "finished",
+      "personal": 3.567196875810623,
+      "general": 4.481302738189697
+    }
+  ],
+  "diverged": [],
+  "status": "picked",
+  "pick": 0.001,
+  "pick_run": "e1-pilot-0.001",
+  "next": null,
+  "at_edge": false
+}

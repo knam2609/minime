@@ -1,0 +1,38 @@
+# Shared defaults.  Every other config `extends` this one, so the diff between
+# two experiment arms is exactly the variable under study.
+name: base
+out_dir: artifacts
+
+model:
+  dropout: 0.0
+  norm: rmsnorm
+  pos: rope
+  ffn: swiglu
+  bias: false
+  tie_embeddings: true
+  rope_theta: 10000.0
+  ffn_mult: 4.0
+  init_std: 0.02
+
+training:
+  optimizer: adamw
+  learning_rate: 6.0e-4
+  min_lr_ratio: 0.1
+  weight_decay: 0.1
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  precision: auto
+  device: auto
+  seed: 1337
+  log_interval: 10
+  validation_batches: 20
+  keep_last_n_checkpoints: 2
+
+data:
+  dataset: general
+  # The general corpus's own proportions (630M : 180M : 90M tokens), which the
+  # eval's general_weighted score also uses.  E2 varies this.  Note `extends`
+  # merges dicts, so a child config cannot drop a key -- it can only zero it.
+  mixture: { web: 7, dialogue: 2, code: 1 }
+  tokenizer_path: tokenizer/minime-16k.json
+  seed: 1234

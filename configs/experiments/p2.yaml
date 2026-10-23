@@ -1,0 +1,8 @@
+# P2: E3's arm -- P1 with learned absolute position embeddings in place of
+# RoPE, and nothing else changed.  Judged against P1's seed-noise floor.
+extends: p1.yaml
+name: p2
+notes: "P2 pretrain (E3): probe, AdamW, learned positions."
+
+model:
+  pos: learned

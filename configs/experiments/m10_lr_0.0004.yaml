@@ -1,0 +1,6 @@
+# The edge rule's extension below the grid: run only if 8e-4 wins the four points.
+extends: m10_lr_base.yaml
+name: m10-lr-0.0004
+
+training:
+  learning_rate: 4.0e-4
